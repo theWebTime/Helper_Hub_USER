@@ -1,0 +1,42 @@
+{
+  "name": "servibe-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/motion": "^2.1.0",
+    "apexcharts": "^3.49.0",
+    "axios": "^1.10.0",
+    "i": "^0.3.7",
+    "matter-js": "^0.19.0",
+    "npm": "^10.6.0",
+    "odometer": "^0.4.8",
+    "swiper": "^11.1.1",
+    "uuid": "^9.0.1",
+    "vue": "^3.4.21",
+    "vue-animate-height": "^1.1.2",
+    "vue-countup-v3": "^1.4.1",
+    "vue-odometer": "^1.0.2",
+    "vue-router": "^4.3.2",
+    "vue3-apexcharts": "^1.4.4",
+    "vue3-odometer": "^0.1.3"
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.19.6",
+    "@types/uuid": "^9.0.8",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
