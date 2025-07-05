@@ -19,7 +19,7 @@
       </p>
       <p class="text-xl font-medium text-n300 sm:text-2xl">
         Link:
-        <router-link class="text-n900" to="#"> http://Servibe.com </router-link>
+        <router-link class="text-n900" to="#"> http://Helper Hub.com </router-link>
       </p>
     </div>
 

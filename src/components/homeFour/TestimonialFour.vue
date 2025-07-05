@@ -14,7 +14,7 @@
         <div class="">
           <h5 class="heading-5 text-r300">Testimonials</h5>
           <h2 class="heading-2 max-w-[500px] pt-4">
-            What Users Are Saying About The Servibe
+            What Users Are Saying About The Helper Hub
           </h2>
         </div>
         <p class="font-medium text-n500 sm:max-w-[300px]">

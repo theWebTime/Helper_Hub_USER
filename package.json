@@ -1,5 +1,5 @@
 {
-  "name": "servibe-vue",
+  "name": "helper-hub-vue",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,13 +18,16 @@
     "matter-js": "^0.19.0",
     "npm": "^10.6.0",
     "odometer": "^0.4.8",
+    "pinia": "^3.0.3",
     "swiper": "^11.1.1",
     "uuid": "^9.0.1",
     "vue": "^3.4.21",
     "vue-animate-height": "^1.1.2",
     "vue-countup-v3": "^1.4.1",
+    "vue-loading-overlay": "^6.0.6",
     "vue-odometer": "^1.0.2",
     "vue-router": "^4.3.2",
+    "vue-toastification": "^2.0.0-rc.5",
     "vue3-apexcharts": "^1.4.4",
     "vue3-odometer": "^0.1.3"
   },

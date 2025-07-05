@@ -167,7 +167,7 @@
         <div class="flex flex-col items-start justify-start gap-3 pt-8">
           <p class="text-sm font-medium">ABOUT</p>
           <p class="text-n300">
-            Welcome to Servibe where convenience meets quality. Discover a
+            Welcome to Helper Hub where convenience meets quality. Discover a
             seamless platform connecting you with trusted service providers
             effortlessly.
           </p>

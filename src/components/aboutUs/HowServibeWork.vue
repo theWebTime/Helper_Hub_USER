@@ -1,7 +1,7 @@
 <template>
   <section class="stp-30 sbp-30 bg-n900">
     <div class="container text-white">
-      <h2 class="heading-2 text-center">How does Servibe work?</h2>
+      <h2 class="heading-2 text-center">How does Helper Hub work?</h2>
 
       <div class="stp-15 grid grid-cols-12 gap-6">
         <div

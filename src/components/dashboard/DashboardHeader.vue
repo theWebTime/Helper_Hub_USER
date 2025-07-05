@@ -12,7 +12,7 @@
           <router-link to="/dashboard/home">
             <img
               :src="logo"
-              alt="Servibe logo"
+              alt="Helper Hub logo"
               class="max-w-[110px] min-[400px]:max-sm:max-w-[150px] sm:max-w-[170px]"
             />
           </router-link>

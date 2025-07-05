@@ -22,35 +22,49 @@
           </router-link>
         </div>
         <div class="flex items-center justify-start pt-8">
-          <p class="heading-5">Welcome to Servibe</p>
+          <p class="heading-5">Welcome to Helper Hub</p>
           <img :src="icon2" alt="" />
         </div>
-        <form class="flex w-full flex-col pt-6">
+        <form class="flex w-full flex-col pt-6" @submit.prevent="otpStep ? handleVerifyOtp() : handleSendOtp()">
           <div class="flex flex-col gap-6">
-            <div
-              class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3"
-            >
+            <!-- Mobile Field: always visible, disables when OTP step -->
+            <div class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3">
               <span class="text-2xl !leading-none">
-                <PhEnvelopeSimple />
+                <PhPhone />
               </span>
               <input
+                v-model="mobile"
                 type="text"
-                placeholder="Enter Your Email"
+                placeholder="Enter Your Mobile"
                 class="w-full text-sm text-n300 outline-none"
+                autocomplete="tel"
+                required
+                :disabled="otpStep"
               />
             </div>
-            <div
-              class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3"
-            >
+            <!-- OTP Field: only visible after OTP sent -->
+            <div v-if="otpStep" class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3 relative">
               <span class="text-2xl !leading-none">
                 <PhLock />
               </span>
               <input
-                type="password"
-                placeholder="*******"
+                v-model="otp"
+                type="text"
+                placeholder="Enter OTP"
                 class="w-full text-sm text-n300 outline-none"
+                required
               />
+              <span v-if="otpTimer > 0" class="ml-2 text-xs text-gray-500 absolute right-4">
+                {{ Math.floor(otpTimer / 60) }}:{{ (otpTimer % 60).toString().padStart(2, '0') }}
+              </span>
+              <span v-else class="ml-2 text-xs text-red-500 absolute right-4">OTP expired</span>
             </div>
+          </div>
+          <div v-if="error" class="py-2 text-red-500 text-sm">
+            {{ error }}
+          </div>
+          <div v-if="successMsg" class="py-2 text-green-600 text-sm">
+            {{ successMsg }}
           </div>
           <div class="w-full">
             <router-link
@@ -59,12 +73,25 @@
             >
               Forgot Password?
             </router-link>
-            <router-link
-              to="/"
+            <button
+              type="submit"
               class="relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-3 font-semibold text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] sm:px-8"
+              :disabled="loading || (otpStep && otpTimer === 0)"
             >
-              <span class="relative z-10">Sign In</span>
-            </router-link>
+              <span class="relative z-10">
+                <span v-if="!loading">{{ otpStep ? "Verify OTP" : "Send OTP" }}</span>
+                <span v-else>{{ otpStep ? "Verifying..." : "Sending..." }}</span>
+              </span>
+            </button>
+            <button
+              v-if="otpStep && otpTimer === 0"
+              @click.prevent="handleResendOtp"
+              class="mt-2 text-xs text-b300 underline"
+              :disabled="loading"
+              type="button"
+            >
+              Resend OTP
+            </button>
             <div
               class="flex items-center justify-center gap-2 py-3 text-sm font-medium"
             >
@@ -74,7 +101,7 @@
               </router-link>
             </div>
 
-            <button
+            <!-- <button
               class="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-n30 py-3"
             >
               <img :src="google" alt="" />
@@ -86,7 +113,7 @@
             >
               <img :src="facebook" alt="" />
               <span class="text-sm">Facebook</span>
-            </button>
+            </button> -->
           </div>
         </form>
       </div>
@@ -95,12 +122,104 @@
 </template>
 
 <script setup lang="ts">
-import { PhEnvelopeSimple, PhLock } from "@phosphor-icons/vue";
-import facebook from "/images/facebook_icon.png";
-import google from "/images/google_icon.png";
+import { ref, onUnmounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { PhEnvelopeSimple, PhLock, PhPhone } from "@phosphor-icons/vue";
 import logo from "/images/logo.png";
 import icon2 from "/images/victor_icon.png";
 import LeftSideSlider from "../components/authentication/LeftSideSlider.vue";
+import { sendLoginOtp, verifyLoginOtp } from '../api/auth';
+
+const mobile = ref('');
+const otp = ref('');
+const error = ref('');
+const loading = ref(false);
+const otpStep = ref(false);
+const successMsg = ref('');
+
+const otpTimer = ref(0);
+let timerInterval: ReturnType<typeof setInterval> | null = null;
+
+const router = useRouter();
+
+const startOtpTimer = () => {
+  otpTimer.value = 120;
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (otpTimer.value > 0) {
+      otpTimer.value--;
+    } else {
+      clearInterval(timerInterval!);
+      timerInterval = null;
+    }
+  }, 1000);
+};
+
+const stopOtpTimer = () => {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+};
+
+onUnmounted(() => {
+  stopOtpTimer();
+});
+
+const handleSendOtp = async () => {
+  error.value = '';
+  successMsg.value = '';
+  loading.value = true;
+  try {
+    const mobilePattern = /^[6-9][0-9]{9}$/;
+    if (!mobilePattern.test(mobile.value)) {
+      error.value = "Mobile number must start with 6, 7, 8, or 9 and be 10 digits.";
+      loading.value = false;
+      return;
+    }
+    const res = await sendLoginOtp(mobile.value);
+    if (res.data && res.data.success) {
+      successMsg.value = res.data.message || "OTP sent! Please check your mobile.";
+      otpStep.value = true;
+      startOtpTimer();
+    } else {
+      error.value = res.data?.message || "Failed to send OTP. Please try again.";
+    }
+  } catch (err: any) {
+    error.value = err.response?.data?.message || 'Failed to send OTP. Please try again.';
+  } finally {
+    loading.value = false;
+  }
+};
+
+const handleResendOtp = async () => {
+  otp.value = "";
+  await handleSendOtp();
+};
+
+const handleVerifyOtp = async () => {
+  if (otpTimer.value <= 0) {
+    error.value = "OTP expired! Please resend OTP.";
+    return;
+  }
+  error.value = '';
+  successMsg.value = '';
+  loading.value = true;
+  try {
+    const res = await verifyLoginOtp(mobile.value, otp.value);
+    if (res.data && res.data.success && res.data.data?.token) {
+      stopOtpTimer();
+      localStorage.setItem('token', res.data.data.token);
+      router.push('/booking');
+    } else {
+      error.value = res.data?.message || 'Invalid response from server.';
+    }
+  } catch (err: any) {
+    error.value = err.response?.data?.message || 'Login failed. Please try again.';
+  } finally {
+    loading.value = false;
+  }
+};
 </script>
 
 <style scoped></style>

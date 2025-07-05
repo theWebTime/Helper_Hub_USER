@@ -29,7 +29,7 @@
             <router-link to="/">
               <img
                 :src="logo"
-                alt="Servibe logo"
+                alt="Helper Hub logo"
                 class="max-w-[170px] max-sm:max-w-[150px]"
               />
             </router-link>
@@ -71,21 +71,34 @@
             </ul>
           </nav>
 
+          <!-- Auth Section -->
           <div class="flex items-center justify-between gap-6">
-            <ul
-              class="flex items-center justify-start gap-2 font-medium max-sm:hidden xxl:gap-6"
-            >
-              <li class="hover:text-b500 duration-500">
-                <router-link to="/sign-up" class="rounded-lg px-2 py-3">
-                  Sign up
-                </router-link>
-              </li>
-              <li class="hover:text-b500 duration-500">
-                <router-link to="/sign-in" class="rounded-lg px-2 py-3">
-                  Sign in
-                </router-link>
-              </li>
-            </ul>
+            <template v-if="!isLoggedIn">
+              <ul class="flex items-center justify-start gap-2 font-medium max-sm:hidden xxl:gap-6">
+                <li class="hover:text-b500 duration-500">
+                  <router-link to="/sign-up" class="rounded-lg px-2 py-3">
+                    Sign up
+                  </router-link>
+                </li>
+                <li class="hover:text-b500 duration-500">
+                  <router-link to="/sign-in" class="rounded-lg px-2 py-3">
+                    Sign in
+                  </router-link>
+                </li>
+              </ul>
+            </template>
+            <template v-else>
+              <!-- <div class="flex items-center gap-3 font-medium text-b500">
+                <span class="font-semibold">{{ userName }}</span>
+                <button @click="handleLogout" class="ml-2 text-lg hover:text-red-500" title="Logout">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" /></svg>
+                </button>
+              </div> -->
+          <DashboardProfileLinkModal />
+
+            </template>
+
+            <!-- Other Links Section -->
             <div class="flex items-center justify-between gap-3 font-semibold">
               <router-link
                 to="/post-task"
@@ -97,12 +110,12 @@
                   class="relative z-10 text-xl xxl:hidden"
                 />
               </router-link>
-              <router-link
+              <!-- <router-link
                 to="/become-tasker"
                 class="relative overflow-hidden rounded-full bg-b50 px-8 py-3 text-b300 duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] max-xl:hidden"
               >
                 <span class="relative z-10">Become a Tasker</span>
-              </router-link>
+              </router-link> -->
             </div>
           </div>
         </div>
@@ -114,10 +127,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
 import { PhCaretDown, PhList, PhPlus } from "@phosphor-icons/vue";
 import { headerMenu } from "../../data/data";
 import logo from "/images/logo.png";
+import DashboardProfileLinkModal from "../ui/DashboardProfileLinkModal.vue";
 
 interface MenuItem {
   id: string;
@@ -133,9 +147,33 @@ interface SubMenuItem {
   link: string;
 }
 
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import MobileMenu from "./MobileMenu.vue";
+import { logout } from "../../api/auth";
 
+
+// Auth Logic
+const isLoggedIn = computed(() => !!localStorage.getItem("token"));
+const userName = computed(() => localStorage.getItem("userName") || "User");
+
+const router = useRouter();
+
+const handleLogout = async () => {
+  try {
+    // Call your logout API here, using Axios instance
+    await logout(); // Token is auto-sent via interceptor
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    router.push("/sign-in");
+  } catch {
+    // Fallback even if API fails
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    router.push("/sign-in");
+  }
+};
+
+// Scroll Detection
 const showMobileMenu = ref(false);
 const scrolled = ref(false);
 const route = useRoute();

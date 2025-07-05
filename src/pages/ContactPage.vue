@@ -18,8 +18,8 @@
           <p class="pb-6 text-sm font-medium text-n300">
             Speak to our friendly team.
           </p>
-          <router-link to="mailto:support@servibe.com" class="font-medium">
-            support@servibe.com
+          <router-link to="mailto:support@helper-hub.com" class="font-medium">
+            support@helper-hub.com
           </router-link>
         </div>
         <div
@@ -32,7 +32,7 @@
           </div>
           <h4 class="heading-4 pt-6">Visit us</h4>
           <p class="pb-6 text-sm font-medium text-n300">Visit our office HQ.</p>
-          <router-link to="mailto:support@servibe.com" class="font-medium">
+          <router-link to="mailto:support@helper-hub.com" class="font-medium">
             View on Google Maps
           </router-link>
         </div>
@@ -48,7 +48,7 @@
           <p class="pb-6 text-sm font-medium text-n300">
             Mon-Fri from 8am to 5pm.
           </p>
-          <router-link to="mailto:support@servibe.com" class="font-medium">
+          <router-link to="mailto:support@helper-hub.com" class="font-medium">
             (239) 555-0108
           </router-link>
         </div>

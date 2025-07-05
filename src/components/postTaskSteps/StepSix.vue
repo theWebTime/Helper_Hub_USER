@@ -31,7 +31,7 @@
         </div>
 
         <div class="">
-          <p class="pb-4">What is your main goal on Servibe? *</p>
+          <p class="pb-4">What is your main goal on Helper Hub? *</p>
           <div
             class="flex w-full items-center justify-start font-medium max-sm:flex-wrap"
           >
@@ -61,7 +61,7 @@
         <div class="flex items-center justify-start gap-3">
           <input type="checkbox" />
           <p class="text-sm text-n300">
-            I agree to the Servibe
+            I agree to the Helper Hub
             <router-link to="/terms-conditions" class="text-b300">
               Terms & Conditions
             </router-link>

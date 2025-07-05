@@ -116,7 +116,7 @@
           <component :is="icon" />
         </router-link>
       </div>
-      <p>Copyright @ {{ new Date().getFullYear() }} Servibe</p>
+      <p>Copyright @ {{ new Date().getFullYear() }} Helper Hub</p>
     </div>
   </footer>
 </template>

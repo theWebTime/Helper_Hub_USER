@@ -103,7 +103,7 @@
         <router-link to="" class="text-g200 underline"> Pixelaxis </router-link>
       </div>
 
-      <p>Copyright @ {{ new Date().getFullYear() }} Servibe</p>
+      <p>Copyright @ {{ new Date().getFullYear() }} Helper Hub</p>
     </div>
   </section>
 </template>

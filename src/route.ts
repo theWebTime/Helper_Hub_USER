@@ -42,129 +42,129 @@ export const router = createRouter({
     {
       path: "/",
       component: HomePageOne,
-      meta: { title: "Home - Servibe Vue App" },
+      meta: { title: "Home - Helper Hub Vue App" },
     },
     {
       path: "/home-two",
       component: HomePageTwo,
-      meta: { layout: EmptyLayout, title: "Home Two - Servibe Vue App" },
+      meta: { layout: EmptyLayout, title: "Home Two - Helper Hub Vue App" },
     },
     {
       path: "/home-three",
       component: HomePageThree,
-      meta: { layout: EmptyLayout, title: "Home Three - Servibe Vue App" },
+      meta: { layout: EmptyLayout, title: "Home Three - Helper Hub Vue App" },
     },
     {
       path: "/home-four",
       component: HomePageFour,
-      meta: { layout: EmptyLayout, title: "Home Four - Servibe Vue App" },
+      meta: { layout: EmptyLayout, title: "Home Four - Helper Hub Vue App" },
     },
     {
       path: "/services",
       component: ServicesPage,
-      meta: { title: "All Services - Servibe Vue App" },
+      meta: { title: "All Services - Helper Hub Vue App" },
     },
     {
       path: "/services/service-details",
       component: ServiceDetails,
-      meta: { title: "Service Details - Servibe Vue App" },
+      meta: { title: "Service Details - Helper Hub Vue App" },
     },
     {
       path: "/browse-tasks",
       component: BrowseTasks,
-      meta: { title: "Browse Tasks - Servibe Vue App" },
+      meta: { title: "Browse Tasks - Helper Hub Vue App" },
     },
     {
       path: "/find-workers",
       component: FindWorkers,
-      meta: { title: "Find Workers - Servibe Vue App" },
+      meta: { title: "Find Workers - Helper Hub Vue App" },
     },
     {
       path: "/worker-profile",
       component: WorkerProfile,
-      meta: { title: "Workers Profile - Servibe Vue App" },
+      meta: { title: "Workers Profile - Helper Hub Vue App", requiresAuth: true },
     },
     {
       path: "/find-workers/:name",
       component: WorkerProfile,
-      meta: { title: "Workers Profile - Servibe Vue App" },
+      meta: { title: "Workers Profile - Helper Hub Vue App" },
     },
     {
       path: "/hire-me",
       component: HireWorker,
-      meta: { title: "Hire Worker - Servibe Vue App" },
+      meta: { title: "Hire Worker - Helper Hub Vue App" },
     },
     {
       path: "/about-us",
       component: AboutUsPage,
-      meta: { title: "About Us - Servibe Vue App" },
+      meta: { title: "About Us - Helper Hub Vue App" },
     },
     {
       path: "/blog",
       component: BlogPage,
-      meta: { title: "Blog - Servibe Vue App" },
+      meta: { title: "Blog - Helper Hub Vue App" },
     },
     {
       path: "/blog/blog-details",
       component: BlogDetailsPage,
-      meta: { title: "Blog Details - Servibe Vue App" },
+      meta: { title: "Blog Details - Helper Hub Vue App" },
     },
     {
       path: "/blog/:title",
       component: BlogDetailsPage,
-      meta: { title: "Blog Details - Servibe Vue App" },
+      meta: { title: "Blog Details - Helper Hub Vue App" },
     },
     {
       path: "/chat",
       component: ChatPage,
-      meta: { title: "Chat - Servibe Vue App" },
+      meta: { title: "Chat - Helper Hub Vue App" },
     },
     {
       path: "/faq",
       component: FAQPage,
-      meta: { title: "FAQ - Servibe Vue App" },
+      meta: { title: "FAQ - Helper Hub Vue App" },
     },
     {
       path: "/contact",
       component: ContactPage,
-      meta: { title: "Contact - Servibe Vue App" },
+      meta: { title: "Contact - Helper Hub Vue App" },
     },
     {
       path: "/privacy-policy",
       component: PrivacyPolicy,
-      meta: { title: "Privacy Policy - Servibe Vue App" },
+      meta: { title: "Privacy Policy - Helper Hub Vue App" },
     },
     {
       path: "/terms-conditions",
       component: TermsConditions,
-      meta: { title: "Terms & Conditions - Servibe Vue App" },
+      meta: { title: "Terms & Conditions - Helper Hub Vue App" },
     },
     {
       path: "/become-tasker",
       component: BecomeTasker,
-      meta: { title: "Become Tasker - Servibe Vue App" },
+      meta: { title: "Become Tasker - Helper Hub Vue App" },
     },
     {
       path: "/post-task",
       component: PostSteps,
-      meta: { layout: EmptyLayout, title: "Post A Task - Servibe Vue App" },
+      meta: { layout: EmptyLayout, title: "Post A Task - Helper Hub Vue App" },
     },
     {
       path: "/sign-in",
       component: SignInPage,
-      meta: { layout: EmptyLayout, title: "Sign In - Servibe Vue App" },
+      meta: { layout: EmptyLayout, title: "Sign In - Helper Hub Vue App" },
     },
     {
       path: "/sign-up",
       component: SignUpPage,
-      meta: { layout: EmptyLayout, title: "Sign In - Servibe Vue App" },
+      meta: { layout: EmptyLayout, title: "Sign Up - Helper Hub Vue App" },
     },
     {
       path: "/worker-portfolio",
       component: WorkerPortfolio,
       meta: {
         layout: EmptyLayout,
-        title: "Workers Portfolio - Servibe Vue App",
+        title: "Workers Portfolio - Helper Hub Vue App",
       },
     },
     {
@@ -172,7 +172,7 @@ export const router = createRouter({
       component: WorkerPortfolioDetails,
       meta: {
         layout: EmptyLayout,
-        title: "Workers Portfolio Details - Servibe Vue App",
+        title: "Workers Portfolio Details - Helper Hub Vue App",
       },
     },
 
@@ -180,12 +180,12 @@ export const router = createRouter({
     {
       path: "/dashboard/home",
       component: DashboardHome,
-      meta: { layout: DashboardLayout, title: "Dashboard - Servibe Vue App" },
+      meta: { layout: DashboardLayout, title: "Dashboard - Helper Hub Vue App" },
     },
     {
       path: "/dashboard/services",
       component: DashboardServicesPage,
-      meta: { layout: DashboardLayout, title: "Services - Servibe Vue App" },
+      meta: { layout: DashboardLayout, title: "Services - Helper Hub Vue App" },
     },
 
     {
@@ -193,7 +193,7 @@ export const router = createRouter({
       component: PaymentDetails,
       meta: {
         layout: DashboardLayout,
-        title: "Payment Details - Servibe Vue App",
+        title: "Payment Details - Helper Hub Vue App",
       },
     },
 
@@ -202,7 +202,7 @@ export const router = createRouter({
       component: WishList,
       meta: {
         layout: DashboardLayout,
-        title: "Wishlist - Servibe Vue App",
+        title: "Wishlist - Helper Hub Vue App",
       },
     },
 
@@ -211,7 +211,7 @@ export const router = createRouter({
       component: ReviewPage,
       meta: {
         layout: DashboardLayout,
-        title: "Reviews - Servibe Vue App",
+        title: "Reviews - Helper Hub Vue App",
       },
     },
 
@@ -220,7 +220,8 @@ export const router = createRouter({
       component: ProfilePage,
       meta: {
         layout: DashboardLayout,
-        title: "Profile - Servibe Vue App",
+        title: "Profile - Helper Hub Vue App",
+        requiresAuth: true,
       },
     },
     {
@@ -228,7 +229,7 @@ export const router = createRouter({
       component: EditProfile,
       meta: {
         layout: DashboardLayout,
-        title: "Edit Profile - Servibe Vue App",
+        title: "Edit Profile - Helper Hub Vue App",
       },
     },
     {
@@ -236,7 +237,7 @@ export const router = createRouter({
       component: SettingsPage,
       meta: {
         layout: DashboardLayout,
-        title: "Edit Profile - Servibe Vue App",
+        title: "Edit Profile - Helper Hub Vue App",
       },
     },
     {
@@ -244,7 +245,7 @@ export const router = createRouter({
       component: EditServices,
       meta: {
         layout: DashboardLayout,
-        title: "Edit Services - Servibe Vue App",
+        title: "Edit Services - Helper Hub Vue App",
       },
     },
     {
@@ -252,7 +253,7 @@ export const router = createRouter({
       component: NotFound,
       meta: {
         layout: EmptyLayout,
-        title: "Not Found - Servibe Vue App",
+        title: "Not Found - Helper Hub Vue App",
       },
     },
   ],

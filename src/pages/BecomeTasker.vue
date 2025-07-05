@@ -7,7 +7,7 @@
         <div class="flex flex-col items-start justify-center text-white">
           <p class="heading-2">Be your own boss</p>
           <p class="pt-3 text-lg font-medium sm:text-xl md:text-2xl">
-            Earn up to $10,750 a month on Servibe*
+            Earn up to $10,750 a month on Helper Hub*
           </p>
 
           <div class="pb-6 pt-6 lg:pt-10">
@@ -18,7 +18,7 @@
               <span
                 class="rounded-full bg-n900 px-6 py-3 duration-500 group-hover:translate-x-12"
               >
-                Join Servibe
+                Join Helper Hub
               </span>
               <span
                 class="absolute right-0 top-0 translate-x-0 rounded-full bg-n900 p-[14px] text-xl !leading-none duration-500 group-hover:right-[148px] group-hover:rotate-45"
@@ -74,12 +74,12 @@
         </p>
         <p class="pt-4 text-base font-medium text-n300 sm:text-lg">
           Sign up and start browsing instantly. Set up notifications on the
-          Servibe App to be alerted in real time about jobs that mach your
+          Helper Hub App to be alerted in real time about jobs that mach your
           skills and interest
         </p>
 
         <div class="pt-10 text-white">
-          <LinkButton link="/sign-up" text="Join Servibe" :is-blue="true" />
+          <LinkButton link="/sign-up" text="Join Helper Hub" :is-blue="true" />
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
         </p>
 
         <div class="pt-6 text-white sm:pt-10">
-          <LinkButton link="/sign-up" text="Join Servibe" :is-blue="true" />
+          <LinkButton link="/sign-up" text="Join Helper Hub" :is-blue="true" />
         </div>
       </div>
 
@@ -181,7 +181,7 @@
         </p>
 
         <div class="pt-10 text-white">
-          <LinkButton link="/sign-up" text="Join Servibe" :is-blue="true" />
+          <LinkButton link="/sign-up" text="Join Helper Hub" :is-blue="true" />
         </div>
       </div>
     </div>

@@ -96,7 +96,7 @@
       <h1
         class="text-center text-[430px] font-bold leading-none max-4xl:text-[400px] max-3xl:text-[350px] max-xxl:text-[300px] max-xl:text-[230px] max-lg:text-[180px] max-md:text-[130px] max-sm:text-[70px]"
       >
-        Servibe
+        Helper Hub
       </h1>
 
       <div class="border-t border-n500">
@@ -110,7 +110,7 @@
             </router-link>
           </div>
 
-          <p>Copyright @ {{ new Date().getFullYear() }} Servibe</p>
+          <p>Copyright @ {{ new Date().getFullYear() }} Helper Hub</p>
         </div>
       </div>
     </div>

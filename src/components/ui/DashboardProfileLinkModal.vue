@@ -1,6 +1,6 @@
 <template>
   <div
-    @click="modal = !modal"
+    @click="toggleModal"
     class="relative cursor-pointer rounded-full bg-n30 p-px"
   >
     <img :src="userImg" class="size-11 rounded-full" alt="" />
@@ -13,11 +13,18 @@
     >
       <ul class="flex flex-col gap-3 rtl:pr-4 ltr:pl-4">
         <li
-          v-for="{ id, name, link } in dashboardProfileLink"
+          v-for="{ id, name, link } in visibleLinks"
           :key="id"
           class="font-medium duration-500 hover:text-r300"
         >
           <router-link :to="link">{{ name }}</router-link>
+        </li>
+        <li
+          v-if="logoutLink"
+          class="font-medium duration-500 hover:text-r300 cursor-pointer"
+          @click.stop="handleLogout"
+        >
+          {{ logoutLink.name }}
         </li>
       </ul>
     </div>
@@ -27,8 +34,29 @@
 <script setup lang="ts">
 import userImg from "/images/review_people_1.png";
 import { dashboardProfileLink } from "../../data/data";
-import { ref } from "vue";
-const modal = ref(false);
-</script>
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { logout } from "../../api/auth";
 
-<style scoped></style>
+const modal = ref(false);
+const router = useRouter();
+
+const toggleModal = () => {
+  modal.value = !modal.value;
+};
+
+// Separate logout link
+const visibleLinks = computed(() =>
+  dashboardProfileLink.filter((item) => item.name !== "Logout")
+);
+const logoutLink = dashboardProfileLink.find((item) => item.name === "Logout");
+
+const handleLogout = async () => {
+  try {
+    await logout();
+  } catch (e) {}
+  localStorage.removeItem("token");
+  localStorage.removeItem("userName");
+  router.push("/sign-in");
+};
+</script>

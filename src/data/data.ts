@@ -1408,7 +1408,7 @@ export const blogCommentData = [
     img: commentPeople1,
     date: "October 02",
     comment:
-      "I recently used Servibe for a home cleaning service, and I couldn't be happier with the results! The cleaner was professional, thorough, and paid attention to every detail. My house has never looked better! I highly recommend their services to anyone looking for reliable and high-quality cleaning.",
+      "I recently used Helper Hub for a home cleaning service, and I couldn't be happier with the results! The cleaner was professional, thorough, and paid attention to every detail. My house has never looked better! I highly recommend their services to anyone looking for reliable and high-quality cleaning.",
     isReply: true,
     reply: [
       {
@@ -1417,7 +1417,7 @@ export const blogCommentData = [
         img: commentPeople2,
         date: "October 07",
         comment:
-          "I hired a handyman through Servibe to fix a leaky faucet, and he did a fantastic job! He was knowledgeable, efficient, and took the time to explain what he was doing. ",
+          "I hired a handyman through Helper Hub to fix a leaky faucet, and he did a fantastic job! He was knowledgeable, efficient, and took the time to explain what he was doing. ",
       },
     ],
   },
@@ -1427,7 +1427,7 @@ export const blogCommentData = [
     img: commentPeople3,
     date: "October 09",
     comment:
-      "I recently used Servibe for a home cleaning service, and I couldn't be happier with the results! The cleaner was professional, thorough, and paid attention to every detail. My house has never looked better! I highly recommend their services to anyone looking for reliable and high-quality cleaning.",
+      "I recently used Helper Hub for a home cleaning service, and I couldn't be happier with the results! The cleaner was professional, thorough, and paid attention to every detail. My house has never looked better! I highly recommend their services to anyone looking for reliable and high-quality cleaning.",
     isReply: false,
   },
 ];

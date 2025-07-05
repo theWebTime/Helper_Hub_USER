@@ -14,7 +14,7 @@
             class="block list-inside list-disc pt-3 text-lg text-n300 marker:text-[10px] marker:text-n900"
           >
             <li>
-              Welcome to Servibe These terms and conditions govern your use of
+              Welcome to Helper Hub These terms and conditions govern your use of
               our website and services. By accessing or using our website and
               services, you agree to comply with these terms and conditions.
             </li>

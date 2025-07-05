@@ -1,8 +1,8 @@
 <template>
   <router-view />
-  <RTLToggleButton />
+  <!-- <RTLToggleButton /> -->
 </template>
 
 <script setup lang="ts">
-import RTLToggleButton from "../components/ui/RTLToggleButton.vue";
+// import RTLToggleButton from "../components/ui/RTLToggleButton.vue";
 </script>
