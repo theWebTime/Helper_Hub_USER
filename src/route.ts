@@ -35,6 +35,7 @@ import ProfilePage from "./pages/dashboard/ProfilePage.vue";
 import SettingsPage from "./pages/dashboard/SettingsPage.vue";
 import EditProfile from "./pages/dashboard/EditProfile.vue";
 import EditServices from "./pages/dashboard/EditServices.vue";
+import Payment from "./pages/Payment.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,12 @@ export const router = createRouter({
     {
       path: "/",
       component: HomePageOne,
+      meta: { title: "Home - Helper Hub Vue App" },
+    },
+    // creating custom routes
+    {
+      path: "/payment",
+      component: Payment,
       meta: { title: "Home - Helper Hub Vue App" },
     },
     {
