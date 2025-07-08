@@ -1166,6 +1166,11 @@ export const dashboardProfileLink = [
   },
   {
     id: uuidv4(),
+    name: "Manage Address",
+    link: "/dashboard/manage-address",
+  },
+  {
+    id: uuidv4(),
     name: "Edit Profile",
     link: "/dashboard/edit-profile",
   },

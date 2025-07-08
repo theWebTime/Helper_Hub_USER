@@ -36,6 +36,7 @@ import SettingsPage from "./pages/dashboard/SettingsPage.vue";
 import EditProfile from "./pages/dashboard/EditProfile.vue";
 import EditServices from "./pages/dashboard/EditServices.vue";
 import Payment from "./pages/Payment.vue";
+import ManageAddress from "./pages/dashboard/ManageAddress.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -228,6 +229,15 @@ export const router = createRouter({
       meta: {
         // layout: DashboardLayout,
         title: "Profile - Helper Hub Vue App",
+        requiresAuth: true,
+      },
+    },
+    {
+      path: "/dashboard/manage-address",
+      component: ManageAddress,
+      meta: {
+        // layout: DashboardLayout,
+        title: "Address - Helper Hub Vue App",
         requiresAuth: true,
       },
     },
