@@ -5,6 +5,16 @@ import DefaultLayout from "./layouts/DefaultLayout.vue";
 // import "vue-loading-overlay/dist/css/index.css"; // ✅ must include CSS
 
 // const loadingStore = useLoadingStore();
+import { onMounted } from "vue";
+import { useSiteSettingStore } from "./stores/siteSettingStore";
+
+const siteSettingStore = useSiteSettingStore();
+
+onMounted(() => {
+  if (!siteSettingStore.loaded) {
+    siteSettingStore.loadSiteSetting();
+  }
+});
 </script>
 
 <template>

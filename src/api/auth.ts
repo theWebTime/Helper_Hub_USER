@@ -1,26 +1,44 @@
 // src/api/apiCalls.ts
 import api from "./axios";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
-const withToast = () => ({
-  meta: { toast: true,  loader: true }
-});
-
 export function sendLoginOtp(mobile: string) {
-  return api.post(`${API_URL}/user/send-login-otp`, { mobile }, withToast());
+  return api.post(
+    "user/send-login-otp",
+    { mobile },
+    {
+      meta: { toast: true, loader: true },
+    }
+  );
 }
 
 export function verifyLoginOtp(mobile: string, otp: string) {
-  return api.post(`${API_URL}/user/verify-login-otp`, { mobile, otp }, withToast());
+  return api.post(
+    "user/verify-login-otp",
+    { mobile, otp },
+    {
+      meta: { toast: true, loader: true },
+    }
+  );
 }
 
 export function sendRegisterOtp(mobile: string) {
-  return api.post(`${API_URL}/register/send-otp`, { mobile }, withToast());
+  return api.post(
+    "register/send-otp",
+    { mobile },
+    {
+      meta: { toast: true, loader: true },
+    }
+  );
 }
 
 export function logout() {
-  return api.post(`${API_URL}/logout`, {}, withToast());
+  return api.post(
+    "logout",
+    {},
+    {
+      meta: { toast: true, loader: true },
+    }
+  );
 }
 
 export function verifyRegisterOtp(payload: {
@@ -31,5 +49,7 @@ export function verifyRegisterOtp(payload: {
   c_password: string;
   otp: string;
 }) {
-  return api.post(`${API_URL}/register/verify-otp`, payload, withToast());
+  return api.post("register/verify-otp", payload, {
+    meta: { toast: true, loader: true },
+  });
 }

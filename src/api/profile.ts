@@ -1,21 +1,19 @@
-import api from "./axios"
-
-const API_URL = import.meta.env.VITE_API_URL
-
-const withToast = () => ({
-    meta: { toast: true, loader: true }
-})
+import api from "./axios";
 
 // GET /profile
 export function getProfile() {
-    return api.get(`${API_URL}/profile`, withToast())
+  return api.get("profile", {
+    meta: { toast: true, loader: true },
+  });
 }
 
 // PUT /profile/update
 export function updateProfile(payload: {
-    name: string
-    email: string
-    mobile: string
+  name: string;
+  email: string;
+  mobile: string;
 }) {
-    return api.put(`${API_URL}/profile/update`, payload, withToast())
+  return api.put("profile/update", payload, {
+    meta: { toast: true, loader: true },
+  });
 }

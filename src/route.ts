@@ -50,7 +50,7 @@ export const router = createRouter({
     {
       path: "/payment",
       component: Payment,
-      meta: { title: "Home - Helper Hub Vue App" },
+      meta: { title: "Home - Helper Hub Vue App", requiresAuth: true },
     },
     {
       path: "/home-two",
