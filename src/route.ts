@@ -226,7 +226,7 @@ export const router = createRouter({
       path: "/dashboard/profile",
       component: ProfilePage,
       meta: {
-        layout: DashboardLayout,
+        // layout: DashboardLayout,
         title: "Profile - Helper Hub Vue App",
         requiresAuth: true,
       },
