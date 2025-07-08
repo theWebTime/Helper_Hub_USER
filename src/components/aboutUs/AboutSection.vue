@@ -31,7 +31,7 @@
       >
         <h5 class="heading-5 text-r300">About Us</h5>
         <h2 class="heading-2 max-w-[500px] pt-4">
-          Know Our On-Demand Services Platform
+          {{siteSettingStore.data.about_us}}
         </h2>
         <p class="pb-4 pt-3 text-n300 xl:pb-8">
           Readers are distracted by readable content when viewing page layout.
@@ -57,6 +57,9 @@
 import LinkButton from "../ui/LinkButton.vue";
 import aboutImg1 from "/images/about_us_img_1.png";
 import aboutImg2 from "/images/about_us_img_2.png";
+import { useSiteSettingStore } from "../../stores/siteSettingStore";
+
+const siteSettingStore = useSiteSettingStore();
 </script>
 
 <style scoped></style>

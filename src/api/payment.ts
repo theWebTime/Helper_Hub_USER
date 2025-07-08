@@ -1,12 +1,13 @@
-import api from './axios';
-const API_URL = import.meta.env.VITE_API_URL;
-
-const withToast = () => ({
-  meta: { toast: true, loader: true }
-});
+import api from "./axios";
 
 export function createRazorpayOrder(amount: number) {
-  return api.post(`${API_URL}/razorpay/create-order`, { amount }, withToast());
+  return api.post(
+    "razorpay/create-order",
+    { amount },
+    {
+      meta: { toast: true, loader: true },
+    }
+  );
 }
 
 export function verifyRazorpayPayment(payload: {
@@ -14,5 +15,7 @@ export function verifyRazorpayPayment(payload: {
   razorpay_payment_id: string;
   razorpay_signature: string;
 }) {
-  return api.post(`${API_URL}/razorpay/verify-signature`, payload, withToast());
+  return api.post("razorpay/verify-signature", payload, {
+    meta: { toast: true, loader: true },
+  });
 }
