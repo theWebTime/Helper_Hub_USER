@@ -41,25 +41,29 @@
       <div
         class="col-span-12 flex flex-col items-start justify-center gap-6 rounded-3xl border border-n40 p-4 sm:p-10 lg:col-span-7"
       >
-        <div
-          v-for="({ id, question, answer }, idx) in faqData"
-          :key="id"
-          class="overflow-hidden rounded-2xl border border-n40 px-4 py-3 w-full cursor-pointer"
-          @click="handleClick(idx === show ? NaN : idx)"
-        >
-          <div class="flex items-center justify-between max-sm:gap-2">
-            <p class="text-base font-medium sm:text-lg">{{ question }}</p>
-            <div
-              :class="{ 'rotate-90': show === idx, 'rotate-0': show !== idx }"
-              class="flex items-center justify-center rounded-full bg-b300 p-2 text-xl !leading-none text-white duration-700 sm:p-3"
-            >
-              <PhCaretRight />
-            </div>
+        <div v-if="faqStore.loading" class="py-8 text-center">Loading FAQ...</div>
+    <div v-else-if="faqStore.error" class="py-8 text-center text-red-500">{{ faqStore.error }}</div>
+    <div v-else>
+      <div
+        v-for="({ id, question, answer }, idx) in faqStore.data"
+        :key="id"
+        class="overflow-hidden rounded-2xl border border-n40 px-4 py-3 w-full cursor-pointer"
+        @click="handleClick(idx === show ? NaN : idx)"
+      >
+        <div class="flex items-center justify-between max-sm:gap-2">
+          <p class="text-base font-medium sm:text-lg">{{ question }}</p>
+          <div
+            :class="{ 'rotate-90': show === idx, 'rotate-0': show !== idx }"
+            class="flex items-center justify-center rounded-full bg-b300 p-2 text-xl !leading-none text-white duration-700 sm:p-3"
+          >
+            <PhCaretRight />
           </div>
-          <AnimateHeight :height="show === idx ? 'auto' : 0">
-            <p class="pr-8 pt-3 text-n400">{{ answer }}</p>
-          </AnimateHeight>
         </div>
+        <AnimateHeight :height="show === idx ? 'auto' : 0">
+          <p class="pr-8 pt-3 text-n400">{{ answer }}</p>
+        </AnimateHeight>
+      </div>
+    </div>
       </div>
     </div>
   </section>
@@ -67,15 +71,20 @@
 
 <script setup lang="ts">
 import { PhCaretRight, PhQuestion } from "@phosphor-icons/vue";
-import { ref } from "vue";
-import { faqData } from "../../data/data";
+import { ref, onMounted } from "vue";
 import AnimateHeight from "vue-animate-height";
+import { useFaqStore } from "../../stores/faqStore";
 
-const show = ref(0);
+const faqStore = useFaqStore();
+const show = ref(NaN);
 
 function handleClick(idx: number) {
   show.value = idx;
 }
+
+onMounted(() => {
+  faqStore.loadFaq();
+});
 </script>
 
 <style scoped></style>

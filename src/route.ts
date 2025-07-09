@@ -43,7 +43,7 @@ export const router = createRouter({
   routes: [
     {
       path: "/",
-      component: HomePageOne,
+      component: HomePageFour,
       meta: { title: "Home - Helper Hub Vue App" },
     },
     // creating custom routes

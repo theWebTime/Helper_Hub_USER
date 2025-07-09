@@ -108,13 +108,13 @@
         <router-link to="" class="text-g200 underline"> Pixelaxis </router-link>
       </div>
       <div class="flex items-center justify-center gap-5 text-2xl">
-        <router-link
+        <!-- <router-link
           v-for="{ id, icon, link } in socialLinks.slice(0, 3)"
           :to="link"
           :key="id"
         >
           <component :is="icon" />
-        </router-link>
+        </router-link> -->
       </div>
       <p>Copyright @ {{ new Date().getFullYear() }} Helper Hub</p>
     </div>
@@ -123,7 +123,7 @@
 
 <script setup lang="ts">
 import CountUp from "vue-countup-v3";
-import { socialLinks } from "../../../data/data";
+// import { socialLinks } from "../../../data/data";
 import whiteLogo from "/images/logo_white.png";
 </script>
 

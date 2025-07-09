@@ -27,7 +27,7 @@ import portfolioImg4 from "/images/worker-portfolio-img-4.png";
 
 //blog post img
 import {
-  PhBehanceLogo,
+  PhWhatsappLogo,
   PhBellSimpleRinging,
   PhCurrencyCircleDollar,
   PhCurrencyDollarSimple,
@@ -100,6 +100,10 @@ import dashboardServicesImg4 from "/images/dashboard-services-img4.png";
 import commentPeople1 from "/images/comment_people_1.png";
 import commentPeople2 from "/images/comment_people_2.png";
 import commentPeople3 from "/images/comment_people_3.png";
+
+import { useSiteSettingStore } from "../stores/siteSettingStore";
+import { computed } from "vue";
+// const siteSettingStore = useSiteSettingStore();
 
 export const headerMenu = [
   {
@@ -759,38 +763,43 @@ export const popularTabNames = [
   },
 ];
 
-export const socialLinks = [
-  {
-    id: uuidv4(),
-    name: "Facebook",
-    link: "#",
-    icon: PhFacebookLogo,
-  },
-  {
-    id: uuidv4(),
-    name: "Twitter",
-    link: "#",
-    icon: PhTwitterLogo,
-  },
-  {
-    id: uuidv4(),
-    name: "Instagram",
-    link: "#",
-    icon: PhInstagramLogo,
-  },
-  {
-    id: uuidv4(),
-    name: "Behance",
-    link: "#",
-    icon: PhBehanceLogo,
-  },
-  {
-    id: uuidv4(),
-    name: "Dribbble",
-    link: "#",
-    icon: PhDribbbleLogo,
-  },
-];
+export function useSocialLinks() {
+  const siteSettingStore = useSiteSettingStore();
+  return computed(() => [
+    {
+      id: "facebook",
+      name: "Facebook",
+      link: siteSettingStore.data?.facebook_url || "#",
+      icon: PhFacebookLogo,
+    },
+    {
+      id: "twitter",
+      name: "Twitter",
+      link: siteSettingStore.data?.twitter_url || "#",
+      icon: PhTwitterLogo,
+    },
+    {
+      id: "instagram",
+      name: "Instagram",
+      link: siteSettingStore.data?.instagram_url || "#",
+      icon: PhInstagramLogo,
+    },
+    {
+      id: "whatsapp",
+      name: "WhatsApp",
+      link: siteSettingStore.data?.whatsapp_number
+        ? `https://wa.me/${siteSettingStore.data.whatsapp_number}`
+        : "#",
+      icon: PhWhatsappLogo,
+    },
+    {
+      id: "dribbble",
+      name: "Dribbble",
+      link: siteSettingStore.data?.dribbble_url || "#",
+      icon: PhDribbbleLogo,
+    },
+  ]);
+}
 
 export const exploreCategory = [
   {

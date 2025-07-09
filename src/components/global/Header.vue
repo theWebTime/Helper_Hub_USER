@@ -26,12 +26,16 @@
             >
               <PhList weight="bold" />
             </button>
-            <router-link to="/">
+              <router-link to="/">
               <img
-                :src="logo"
+                v-if="logoUrl"
+                :src="logoUrl"
                 alt="Helper Hub logo"
-                class="max-w-[170px] max-sm:max-w-[150px]"
+                class="max-w-[70px] max-sm:max-w-[100px]"
               />
+              <div v-else>
+                <span>Loading logo...</span>
+              </div>
             </router-link>
           </div>
 
@@ -132,6 +136,22 @@ import { PhCaretDown, PhList, PhPlus } from "@phosphor-icons/vue";
 import { headerMenu } from "../../data/data";
 import logo from "/images/logo.png";
 import DashboardProfileLinkModal from "../ui/DashboardProfileLinkModal.vue";
+
+import { useSiteSettingStore } from "../../stores/siteSettingStore";
+
+const siteSettingStore = useSiteSettingStore();
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+
+const logoUrl = computed(() => {
+  const logo = siteSettingStore.data?.logo;
+  return logo ? `${baseUrl}/images/siteSetting/${logo}` : "";
+});
+
+onMounted(async () => {
+  if (!siteSettingStore.loaded) {
+    await siteSettingStore.loadSiteSetting();
+  }
+});
 
 interface MenuItem {
   id: string;

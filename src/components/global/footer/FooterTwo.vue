@@ -7,7 +7,7 @@
           Empowering lives through seamless services, driven by innovation and
           trust
         </p>
-        <div class="stp-30 sbp-30">
+        <!-- <div class="stp-30 sbp-30">
           <ul
             class="flex items-center justify-start gap-2 max-sm:flex-wrap sm:justify-between md:gap-6"
           >
@@ -24,7 +24,7 @@
               </router-link>
             </li>
           </ul>
-        </div>
+        </div> -->
 
         <div class="sbp-30">
           <h4 class="lead-text pb-8 font-semibold">Page List</h4>
@@ -109,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { socialLinks } from "../../../data/data";
+// import { socialLinks } from "../../../data/data";
 </script>
 
 <style scoped></style>

@@ -21,7 +21,7 @@
           <router-link to="/faq">FAQ</router-link>
         </li>
       </ul>
-      <div class="flex items-center justify-center gap-3 text-2xl">
+      <!-- <div class="flex items-center justify-center gap-3 text-2xl">
         <router-link
           v-for="{ id, icon, link } in socialLinks.slice(0, 4)"
           :key="id"
@@ -49,13 +49,13 @@
             class="absolute left-1 top-1/2 h-px w-0 bg-v200 duration-500 group-hover:w-2"
           ></div>
         </router-link>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { socialLinks } from "../../data/data";
+// import { socialLinks } from "../../data/data";
 </script>
 
 <style scoped></style>

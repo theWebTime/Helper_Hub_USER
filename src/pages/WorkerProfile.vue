@@ -173,7 +173,7 @@
           </p>
         </div>
 
-        <div class="flex flex-col items-start justify-start gap-3 pt-8">
+        <!-- <div class="flex flex-col items-start justify-start gap-3 pt-8">
           <p class="text-sm font-medium">router-linkS</p>
           <div class="flex items-center justify-start gap-3">
             <router-link
@@ -187,7 +187,7 @@
               </span>
             </router-link>
           </div>
-        </div>
+        </div> -->
       </div>
       <div
         class="col-span-12 rounded-xl border border-n30 p-4 sm:p-8 lg:col-span-8"
@@ -459,7 +459,7 @@ import BreadCrumb from "../components/ui/BreadCrumb.vue";
 import {
   moreProjectData,
   recommendationsData,
-  socialLinks,
+  // socialLinks,
   topExperts,
   workerServices,
 } from "../data/data";

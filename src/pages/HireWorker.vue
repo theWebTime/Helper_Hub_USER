@@ -52,7 +52,7 @@
           </p>
         </div>
 
-        <div class="flex flex-col items-start justify-start gap-3 pt-8">
+        <!-- <div class="flex flex-col items-start justify-start gap-3 pt-8">
           <p class="text-sm font-medium">LINKS</p>
           <div class="flex items-center justify-start gap-3">
             <router-link
@@ -66,7 +66,7 @@
               </span>
             </router-link>
           </div>
-        </div>
+        </div> -->
       </div>
       <div
         class="col-span-12 rounded-2xl border border-n30 p-4 sm:p-6 md:col-span-7 lg:p-10"
@@ -111,7 +111,7 @@
 </template>
 
 <script setup lang="ts">
-import { socialLinks } from "../data/data";
+// import { socialLinks } from "../data/data";
 import workerImg from "/images/review_people_1.png";
 import badge from "/images/verify-badge2.png";
 </script>

@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { useSocialLinks } from "../../../data/data";
+import LinkButton from "../../ui/LinkButton.vue";
+import bigArrow from "/images/big_arrow.png";
+import { useSiteSettingStore } from "../../../stores/siteSettingStore";
+
+const siteSettingStore = useSiteSettingStore();
+const socialLinks = useSocialLinks();
+</script>
+
 <template>
   <section class="stp-15 overflow-hidden bg-n900">
     <div class="4xl:large-container text-white max-4xl:mx-4">
@@ -54,20 +64,30 @@
           class="flex items-center justify-start gap-6 font-medium max-sm:items-start max-[450px]:flex-col"
         >
           <p class="max-w-[200px] text-start lg:max-w-[250px]">
-            Valentin, Street Road 27, New York. USA - 752252
+            {{ siteSettingStore.data?.address || '' }}
           </p>
           <div class="lg:pl-15">
-            <p class="font-semibold">(629) 555-0129</p>
-            <p>example@mail.com</p>
+            <p class="font-semibold">
+              <a :href="`tel:${siteSettingStore.data?.phone || ''}`" class="hover:underline">
+                {{ siteSettingStore.data?.phone || '' }}
+              </a>
+            </p>
+            <p>
+              <a :href="`mailto:${siteSettingStore.data?.email || ''}`" class="hover:underline">
+                {{ siteSettingStore.data?.email || '' }}
+              </a>
+            </p>
           </div>
         </div>
 
         <div class="flex items-center justify-center gap-3 text-2xl">
-          <router-link
-            v-for="{ id, icon, link } in socialLinks.slice(0, 4)"
+          <a
+            v-for="{ id, icon, link } in socialLinks.slice(0, 3)"
             :key="id"
+            :href="link"
+            target="_blank"
+            rel="noopener noreferrer"
             class="group relative"
-            :to="link"
           >
             <span
               class="flex items-center justify-center rounded-full border border-n500 p-4 duration-500 hover:border-v200 hover:text-v200"
@@ -89,7 +109,7 @@
             <div
               class="absolute left-1 top-1/2 h-px w-0 bg-v200 duration-500 group-hover:w-2"
             ></div>
-          </router-link>
+          </a>
         </div>
       </div>
 
@@ -116,11 +136,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import { socialLinks } from "../../../data/data";
-import LinkButton from "../../ui/LinkButton.vue";
-import bigArrow from "/images/big_arrow.png";
-</script>
-
-<style scoped></style>

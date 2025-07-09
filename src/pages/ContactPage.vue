@@ -18,9 +18,9 @@
           <p class="pb-6 text-sm font-medium text-n300">
             Speak to our friendly team.
           </p>
-          <router-link to="mailto:support@helper-hub.com" class="font-medium">
-            support@helper-hub.com
-          </router-link>
+          <a :href="`mailto:${siteSettingStore.data?.support_email || ''}`" class="hover:underline">
+              {{siteSettingStore.data.support_email}}
+          </a>
         </div>
         <div
           class="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10"
@@ -31,10 +31,8 @@
             <PhMapPin weight="fill" />
           </div>
           <h4 class="heading-4 pt-6">Visit us</h4>
-          <p class="pb-6 text-sm font-medium text-n300">Visit our office HQ.</p>
-          <router-link to="mailto:support@helper-hub.com" class="font-medium">
-            View on Google Maps
-          </router-link>
+          <p class="pb-6 text-sm font-medium text-n300">Visit our office.</p>
+            {{ siteSettingStore.data?.address || '' }}
         </div>
         <div
           class="col-span-12 flex flex-col items-center justify-center rounded-3xl border border-n30 p-6 md:col-span-4 lg:p-10"
@@ -46,11 +44,11 @@
           </div>
           <h4 class="heading-4 pt-6">Contact Us</h4>
           <p class="pb-6 text-sm font-medium text-n300">
-            Mon-Fri from 8am to 5pm.
+            Mon-Sat from 8am to 8pm.
           </p>
-          <router-link to="mailto:support@helper-hub.com" class="font-medium">
-            (239) 555-0108
-          </router-link>
+          <a :href="`tel:${siteSettingStore.data?.phone || ''}`" class="hover:underline">
+                {{ siteSettingStore.data?.phone || '' }}
+              </a>
         </div>
       </div>
 
@@ -121,6 +119,9 @@ import { PhChat, PhMapPin, PhPhoneCall } from "@phosphor-icons/vue";
 import BreadCrumb2 from "../components/global/BreadCrumb2.vue";
 import contactImg from "/images/contact_img.png";
 import FaqSection from "../components/aboutUs/FaqSection.vue";
+import { useSiteSettingStore } from "../stores/siteSettingStore";
+
+const siteSettingStore = useSiteSettingStore();
 </script>
 
 <style scoped></style>
