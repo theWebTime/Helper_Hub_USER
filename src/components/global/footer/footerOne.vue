@@ -28,14 +28,14 @@
           <li>
             <router-link
               class="duration-500 hover:text-r300"
-              to="/find-workers"
+              to="/services"
             >
-              Find Work
+              Services
             </router-link>
           </li>
           <li>
-            <router-link class="duration-500 hover:text-r300" to="/blog">
-              Blog
+            <router-link class="duration-500 hover:text-r300" to="/terms-conditions">
+              Terms & Condition
             </router-link>
           </li>
           <li>

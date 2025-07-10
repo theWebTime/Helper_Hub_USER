@@ -5,7 +5,7 @@
     <div
       class="container -mt-40 rounded-xl border border-n30 bg-white p-4 sm:p-4 md:rounded-3xl xl:rounded-[60px] xl:p-15"
     >
-      <h2 class="heading-2 text-center">Privacy Policy</h2>
+      <h2 class="heading-2 text-center">Terms & Condition</h2>
       <div v-if="termsConditionStore.loading" class="py-8 text-center">Loading Privacy Policy...</div>
       <div v-else-if="termsConditionStore.error" class="py-8 text-center text-red-500">{{ termsConditionStore.error }}</div>
       <div v-else class="stp-15 flex flex-col gap-8">
