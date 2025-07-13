@@ -68,7 +68,7 @@
           </div>
           <div class="w-full">
             <router-link
-              to="/contact"
+              to="/reset-password"
               class="block py-3 text-end text-sm font-medium text-n300"
             >
               Forgot Password?
