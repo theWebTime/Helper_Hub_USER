@@ -8,14 +8,14 @@
       <PhMapPin />
       <span class="locationText">
         <span v-if="selectLocation === null">
-          <span class="max-[400px]:hidden">Select</span> Location
+          <span class="max-[400px]:hidden">Ahmedabad</span> 
         </span>
 
-        <span v-if="selectLocation !== null">{{ selectLocation }}</span>
+        <!-- <span v-if="selectLocation !== null">{{ selectLocation }}</span> -->
       </span>
     </div>
 
-    <div
+    <!-- <div
       class="absolute rtl:right-0 ltr:left-0 top-10 w-[150px] origin-top rounded-3xl border border-n30 bg-white py-3 text-base duration-700 max-sm:text-sm sm:-left-8 sm:w-[200px] sm:py-5 max-h-[300px] overflow-y-auto overflow-x-hidden"
       :class="{
         'visible scale-100 opacity-100': modalOpen,
@@ -36,7 +36,7 @@
       >
         {{ item }}
       </p>
-    </div>
+    </div> -->
   </div>
 </template>
 

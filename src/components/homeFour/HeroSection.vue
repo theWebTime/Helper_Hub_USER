@@ -82,10 +82,36 @@
           class="flex flex-wrap items-center justify-start gap-2 pl-2 pt-8 font-medium text-n900 max-sm:text-sm sm:gap-3"
         >
           <li class="heading-5 text-white">Popular:</li>
-          <li class="rounded-lg bg-b50 px-2 py-2 sm:px-4">Handyman</li>
-          <li class="rounded-lg bg-bg2 px-2 py-2 sm:px-4">Babysitting</li>
-          <li class="rounded-lg bg-eb50 px-2 py-2 sm:px-4">Photography</li>
-          <li class="rounded-lg bg-bg1 px-2 py-2 sm:px-4">Renovation</li>
+          <li
+            v-if="randomSubServiceStore.loading"
+            class="text-white px-2 py-2"
+            style="font-size: 16px"
+          >
+            Loading...
+          </li>
+          <li
+            v-else-if="randomSubServiceStore.error"
+            class="text-red-500 px-2 py-2"
+            style="font-size: 16px"
+          >
+            {{ randomSubServiceStore.error }}
+          </li>
+          <li
+            v-else-if="randomSubServiceStore.data.length === 0"
+            class="text-white px-2 py-2"
+            style="font-size: 16px"
+          >
+            No sub services found.
+          </li>
+          <li
+            v-else
+            v-for="(sub, idx) in randomSubServiceStore.data"
+            :key="sub.id"
+            :class="`rounded-lg px-2 py-2 sm:px-4 ${colorClasses[idx % colorClasses.length]}`"
+            style="font-size: 16px"
+          >
+            {{ sub.name }}
+          </li>
         </ul>
       </div>
     </div>
@@ -95,7 +121,6 @@
 <script setup lang="ts">
 // Import Swiper styles
 import "swiper/css";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, FreeMode } from "swiper/modules";
 
@@ -104,6 +129,15 @@ import sliderImg2 from "/images/home_four_hero2.png";
 import sliderImg3 from "/images/home_four_hero3.png";
 import sliderImg4 from "/images/home_four_hero4.png";
 import SearchBox from "../ui/SearchBox.vue";
+
+import { onMounted } from "vue";
+import { useRandomSubServiceStore } from "../../stores/randomSubServiceStore";
+
+const randomSubServiceStore = useRandomSubServiceStore();
+
+onMounted(() => {
+  randomSubServiceStore.loadRandomSubServices();
+});
 
 const sliderImages = [
   sliderImg1,
@@ -114,6 +148,14 @@ const sliderImages = [
   sliderImg2,
   sliderImg3,
   sliderImg4,
+];
+
+// Define your color classes here, in the order you want them applied
+const colorClasses = [
+  "bg-b50",
+  "bg-bg2",
+  "bg-eb50",
+  "bg-bg1",
 ];
 </script>
 
