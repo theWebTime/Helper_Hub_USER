@@ -43,20 +43,6 @@
               </div>
               <div class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3">
                 <span class="text-2xl !leading-none">
-                  <PhLock />
-                </span>
-                <input v-model="password" type="password" placeholder="Enter Password"
-                  class="w-full text-sm text-n300 outline-none" required />
-              </div>
-              <div class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3">
-                <span class="text-2xl !leading-none">
-                  <PhLock />
-                </span>
-                <input v-model="c_password" type="password" placeholder="Confirm Password"
-                  class="w-full text-sm text-n300 outline-none" required />
-              </div>
-              <div class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3">
-                <span class="text-2xl !leading-none">
                   <PhPhone />
                 </span>
                 <input v-model="mobile" type="text" placeholder="Enter Your Mobile"
@@ -74,6 +60,7 @@
                 </span>
                 <span v-else class="ml-2 text-xs text-red-500 absolute right-4">OTP expired</span>
               </div>
+              <br>
             </div>
             <div v-if="error" class="py-2 text-red-500 text-sm">{{ error }}</div>
             <div v-if="successMsg" class="py-2 text-green-600 text-sm">{{ successMsg }}</div>
@@ -134,8 +121,6 @@ import { sendRegisterOtp, verifyRegisterOtp } from "../api/auth";
 
 const name = ref("");
 const email = ref("");
-const password = ref("");
-const c_password = ref("");
 const mobile = ref("");
 const otp = ref("");
 const error = ref("");
@@ -219,14 +204,12 @@ const handleVerifyOtpAndRegister = async () => {
       name: name.value,
       email: email.value,
       mobile: mobile.value,
-      password: password.value,
-      c_password: c_password.value,
       otp: otp.value,
     });
     if (res.data && res.data.success && res.data.data?.token) {
       stopOtpTimer();
       localStorage.setItem("token", res.data.data.token);
-      router.push("/booking");
+      router.push("/");
     } else {
       error.value = res.data?.message || "Registration failed. Invalid server response.";
     }

@@ -61,7 +61,7 @@
         </p>
 
         <div class="w-[95%] text-n900 md:w-[650px] lg:w-[800px] xl:w-[950px]">
-          <SearchBox />
+          <SearchBox :redirectOnSearch="true" />
         </div>
 
         <ul

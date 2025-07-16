@@ -53,9 +53,13 @@
             {{ successMsg }}
           </div>
           <div class="w-full">
-            <router-link to="/reset-password" class="block py-3 text-end text-sm font-medium text-n300">
+            <br>
+            <!-- <router-link
+              to="/reset-password"
+              class="block py-3 text-end text-sm font-medium text-n300"
+            >
               Forgot Password?
-            </router-link>
+            </router-link> -->
             <button type="submit"
               class="relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-3 font-semibold text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] sm:px-8"
               :disabled="loading || (otpStep && otpTimer === 0)">
@@ -71,7 +75,7 @@
             <div class="flex items-center justify-center gap-2 py-3 text-sm font-medium">
               <p class="text-n300">Don’t have an account?</p>
               <router-link to="/sign-up" class="text-b300 underline">
-                Sign Up with Email
+                Sign Up
               </router-link>
             </div>
 
@@ -184,7 +188,7 @@ const handleVerifyOtp = async () => {
     if (res.data && res.data.success && res.data.data?.token) {
       stopOtpTimer();
       localStorage.setItem('token', res.data.data.token);
-      router.push('/booking');
+      router.push('/');
     } else {
       error.value = res.data?.message || 'Invalid response from server.';
     }

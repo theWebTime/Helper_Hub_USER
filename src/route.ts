@@ -24,7 +24,7 @@ import TermsConditions from "./pages/TermsConditions.vue";
 import BecomeTasker from "./pages/BecomeTasker.vue";
 import PostSteps from "./pages/PostSteps.vue";
 import SignInPage from "./pages/SignInPage.vue";
-import ResetPassword from "./pages/ResetPassword.vue";
+// import ResetPassword from "./pages/ResetPassword.vue";
 import SignUpPage from "./pages/SignUpPage.vue";
 import DashboardHome from "./pages/dashboard/DashboardHome.vue";
 import DashboardLayout from "./layouts/DashboardLayout.vue";
@@ -163,11 +163,11 @@ export const router = createRouter({
       component: SignInPage,
       meta: { layout: EmptyLayout, title: "Sign In - Helper Hub Vue App" },
     },
-    {
-      path: "/reset-password",
-      component: ResetPassword,
-      meta: { layout: EmptyLayout, title: "Sign In - Helper Hub Vue App" },
-    },
+    // {
+    //   path: "/reset-password",
+    //   component: ResetPassword,
+    //   meta: { layout: EmptyLayout, title: "Sign In - Helper Hub Vue App" },
+    // },
     {
       path: "/sign-up",
       component: SignUpPage,
