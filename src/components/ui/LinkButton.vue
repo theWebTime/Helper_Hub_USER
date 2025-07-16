@@ -1,32 +1,20 @@
 <template>
-  <router-link
-    @mouseover="handleMouseOver"
-    @mouseout="handleMouseOut"
-    :to="link"
-    class="group relative flex items-center justify-start pr-12 font-semibold"
-  >
-    <span
-      ref="oneItemRef"
-      :class="{
-        'bg-white': isBgWhite,
-        'bg-g300': isGreen,
-        'bg-b300': isBlue,
-        'bg-y300': isYellow,
-      }"
-      class="rounded-full px-6 py-3 duration-500 group-hover:translate-x-12"
-    >
+  <router-link @mouseover="handleMouseOver" @mouseout="handleMouseOut" :to="link"
+    class="group relative flex items-center justify-start pr-12 font-semibold">
+    <span ref="oneItemRef" :class="{
+      'bg-white': isBgWhite,
+      'bg-g300': isGreen,
+      'bg-b300': isBlue,
+      'bg-y300': isYellow,
+    }" class="rounded-full px-6 py-3 duration-500 group-hover:translate-x-12">
       {{ text }}
     </span>
-    <span
-      ref="twoItemRef"
-      :class="{
-        'bg-white': isBgWhite,
-        'bg-g300': isGreen,
-        'bg-b300': isBlue,
-        'bg-y300': isYellow,
-      }"
-      class="translate-x-0 rounded-full p-[14px] text-xl !leading-none duration-500 group-hover:rotate-45"
-    >
+    <span ref="twoItemRef" :class="{
+      'bg-white': isBgWhite,
+      'bg-g300': isGreen,
+      'bg-b300': isBlue,
+      'bg-y300': isYellow,
+    }" class="translate-x-0 rounded-full p-[14px] text-xl !leading-none duration-500 group-hover:rotate-45">
       <PhArrowUpRight />
     </span>
   </router-link>

@@ -3,11 +3,7 @@
     <div class="relative flex items-center justify-center">
       <h2 class="heading-2 relative font-bold text-n900">
         Get help <span class="text-b300 underline">Today</span>
-        <img
-          :src="helpIcon"
-          alt=""
-          class="absolute -bottom-24 right-0 z-20 sm:-bottom-20 sm:-right-28"
-        />
+        <img :src="helpIcon" alt="" class="absolute -bottom-24 right-0 z-20 sm:-bottom-20 sm:-right-28" />
       </h2>
     </div>
 

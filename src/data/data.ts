@@ -18,6 +18,10 @@ import expertImgSlider6 from "/images/expert_slider_img_6.png";
 import smallPeople1 from "/images/people_small1.png";
 import smallPeople2 from "/images/people_small2.png";
 import smallPeople3 from "/images/people_small3.png";
+import smallPeople4 from "/images/people_small4.png";
+import smallPeople5 from "/images/people_small5.png";
+import smallPeople6 from "/images/people_small6.png";
+import smallPeople7 from "/images/people_small7.png";
 
 //worker portfolio images
 import portfolioImg1 from "/images/worker-portfolio-img-1.png";
@@ -140,22 +144,17 @@ export const headerMenu = [
     submenu: [
       {
         id: uuidv4(),
-        name: "All Services",
+        name: "One Time Services",
         link: "/services",
       },
       {
         id: uuidv4(),
-        name: "Service Details",
-        link: "/services/service-details",
-      },
-      {
-        id: uuidv4(),
-        name: "Browse Tasks",
-        link: "/browse-tasks",
+        name: "Monthly Services",
+        link: "/services",
       },
     ],
   },
-  {
+  /* {
     id: uuidv4(),
     name: "Worker",
     isSubmenu: true,
@@ -191,7 +190,7 @@ export const headerMenu = [
         link: "/dashboard/home",
       },
     ],
-  },
+  }, */
   {
     id: uuidv4(),
     name: "Pages",
@@ -204,33 +203,8 @@ export const headerMenu = [
       },
       {
         id: uuidv4(),
-        name: "Blog",
-        link: "/blog",
-      },
-      {
-        id: uuidv4(),
-        name: "Blog Details",
-        link: "/blog/blog-details",
-      },
-      {
-        id: uuidv4(),
-        name: "Chat",
-        link: "/chat",
-      },
-      {
-        id: uuidv4(),
         name: "FAQ",
         link: "/faq",
-      },
-      {
-        id: uuidv4(),
-        name: "Contact",
-        link: "/contact",
-      },
-      {
-        id: uuidv4(),
-        name: "Not Found",
-        link: "/not-found",
       },
       {
         id: uuidv4(),
@@ -241,6 +215,11 @@ export const headerMenu = [
         id: uuidv4(),
         name: "Terms & Conditions",
         link: "/terms-conditions",
+      },
+      {
+        id: uuidv4(),
+        name: "Contact Us",
+        link: "/contact",
       },
     ],
   },
@@ -512,49 +491,49 @@ export const testimonialData = [
   {
     id: uuidv4(),
     review:
-      "I was amazed at the efficiency of the platform. The handyman arrived promptly and completed the task with skill. I'm a satisfied customer and will definitely use this service again.A reliable service for tech assistance.",
+      "I booked a maid for daily kitchen and dish cleaning. The service was punctual and hassle-free. She was polite and knew her job well. Helper Hub has been a blessing for my busy lifestyle!",
     img: smallPeople1,
-    name: "Leslie Alexander",
+    name: "Ankita Sharma, Ahmedabad",
     profileId: "@iamsedaoi",
   },
   {
     id: uuidv4(),
     review:
-      "I was amazed at the efficiency of the platform. The handyman arrived promptly and completed the task with skill.",
+      "After trying many local agencies, Helper Hub finally sent someone reliable. My elderly parents now have help for cooking and cleaning. We’re so relieved!",
     img: smallPeople2,
-    name: "Ronald Richards",
+    name: "Ravi Mehta, Ahmedabad",
     profileId: "@roanld23",
   },
   {
     id: uuidv4(),
     review:
-      "I was amazed at the efficiency of the platform. The handyman arrived promptly and completed the task with skill. I'm a satisfied customer and will definitely use this service again.",
+      "The kitchen helper arrived on time and maintained great hygiene. Booking the service was quick, and the customer support was super responsive. Totally recommend it.",
     img: smallPeople3,
-    name: "Esther Howard",
+    name: "Preeti Desai, Ahmedabad",
     profileId: "@estherHowerd",
   },
   {
     id: uuidv4(),
     review:
-      "I was amazed at the efficiency of the platform. The handyman arrived promptly and completed the task with skill. I'm a satisfied customer and will definitely use this service again.",
-    img: smallPeople2,
-    name: "Adele Brown",
+      "We hired a part-time maid for mopping and cleaning. She did a thorough job and was very professional. It’s clear Helper Hub trains their staff well.",
+    img: smallPeople4,
+    name: "Siddharth Patel, Ahmedabad",
     profileId: "@adelebrown",
   },
   {
     id: uuidv4(),
     review:
-      "I was amazed at the efficiency of the platform. The handyman arrived promptly and completed the task with skill.",
-    img: smallPeople3,
-    name: "Ella Curry",
+      "Excellent cooking assistance for my mom while I’m at work. The helper even handled basic grocery chopping and prep. It made a big difference in our routine.",
+    img: smallPeople5,
+    name: "Karan Patel, Ahmedabad",
     profileId: "@ellacurry",
   },
   {
     id: uuidv4(),
     review:
-      "I was amazed at the efficiency of the platform. The handyman arrived promptly and completed the task with skill. I'm a satisfied customer and will definitely use this service again.A reliable service for tech assistance.",
-    img: smallPeople1,
-    name: "Georgia Daniels",
+      "Very impressed with the quality of service. The housemaid was polite, hardworking, and respectful of our space. It’s rare to find such trustworthy help.",
+    img: smallPeople6,
+    name: "Neha Parmar, Ahmedabad",
     profileId: "@georgia",
   },
 ];
@@ -563,97 +542,57 @@ export const loginReviewData = [
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
+      "I booked a maid for daily kitchen and dish cleaning. The service was punctual and hassle-free. She was polite and knew her job well. Helper Hub has been a blessing for my busy lifestyle!",
     img: smallPeople1,
-    name: "Leslie Alexander",
+    name: "Ankita Sharma, Ahmedabad",
     profileId: "@iamsedaoi",
   },
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
+      "After trying many local agencies, Helper Hub finally sent someone reliable. My elderly parents now have help for cooking and cleaning. We’re so relieved!",
     img: smallPeople2,
-    name: "Ronald Richards",
+    name: "Ravi Mehta, Ahmedabad",
     profileId: "@roanld23",
   },
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
+      "The kitchen helper arrived on time and maintained great hygiene. Booking the service was quick, and the customer support was super responsive. Totally recommend it.",
     img: smallPeople3,
-    name: "Esther Howard",
+    name: "Preeti Desai, Ahmedabad",
     profileId: "@estherHowerd",
   },
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople2,
-    name: "Adele Brown",
+      "We hired a part-time maid for mopping and cleaning. She did a thorough job and was very professional. It’s clear Helper Hub trains their staff well.",
+    img: smallPeople4,
+    name: "Siddharth Patel, Ahmedabad",
     profileId: "@adelebrown",
   },
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople3,
-    name: "Ella Curry",
+      "Excellent cooking assistance for my mom while I’m at work. The helper even handled basic grocery chopping and prep. It made a big difference in our routine.",
+    img: smallPeople5,
+    name: "Karan Patel, Ahmedabad",
     profileId: "@ellacurry",
   },
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople1,
-    name: "Georgia Daniels",
+      "Very impressed with the quality of service. The housemaid was polite, hardworking, and respectful of our space. It’s rare to find such trustworthy help.",
+    img: smallPeople6,
+    name: "Neha Parmar, Ahmedabad",
     profileId: "@georgia",
   },
   {
     id: uuidv4(),
     review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople1,
-    name: "Leslie Alexander",
-    profileId: "@iamsedaoi",
-  },
-  {
-    id: uuidv4(),
-    review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople2,
-    name: "Ronald Richards",
-    profileId: "@roanld23",
-  },
-  {
-    id: uuidv4(),
-    review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople3,
-    name: "Esther Howard",
-    profileId: "@estherHowerd",
-  },
-  {
-    id: uuidv4(),
-    review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople2,
-    name: "Adele Brown",
-    profileId: "@adelebrown",
-  },
-  {
-    id: uuidv4(),
-    review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople3,
-    name: "Ella Curry",
-    profileId: "@ellacurry",
-  },
-  {
-    id: uuidv4(),
-    review:
-      "I am always trying to find such a solution to making marketing videos more efficient. Creating consuming. We found some AI copywriting tools. This is the first time I see a product that can generate video content. Good job team!",
-    img: smallPeople1,
-    name: "Georgia Daniels",
+      "Being a working couple, we struggled with house cleaning. The Helper Hub app made it super easy to schedule daily help. No follow-ups, no stress — just done!",
+    img: smallPeople7,
+    name: "Rahul Patel, Ahmedabad",
     profileId: "@georgia",
   },
 ];
@@ -1178,7 +1117,7 @@ export const dashboardProfileLink = [
     name: "Manage Address",
     link: "/dashboard/manage-address",
   },
-  {
+  /* {
     id: uuidv4(),
     name: "Edit Profile",
     link: "/dashboard/edit-profile",
@@ -1187,7 +1126,7 @@ export const dashboardProfileLink = [
     id: uuidv4(),
     name: "Settings",
     link: "/dashboard/settings",
-  },
+  }, */
   {
     id: uuidv4(),
     name: "Logout",

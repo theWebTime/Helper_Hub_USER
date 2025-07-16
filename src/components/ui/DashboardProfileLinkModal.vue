@@ -1,29 +1,17 @@
 <template>
-  <div
-    @click="toggleModal"
-    class="relative cursor-pointer rounded-full bg-n30 p-px"
-  >
+  <div @click="toggleModal" class="relative cursor-pointer rounded-full bg-n30 p-px">
     <img :src="userImg" class="size-11 rounded-full" alt="" />
-    <div
-      :class="{
-        'visible scale-100 opacity-100': modal,
-        'invisible scale-0 opacity-0': !modal,
-      }"
-      class="absolute rtl:left-0 ltr:right-0 top-12 w-[200px] origin-top-right rounded-2xl border border-n30 bg-white py-4 duration-500"
-    >
+    <div :class="{
+      'visible scale-100 opacity-100': modal,
+      'invisible scale-0 opacity-0': !modal,
+    }"
+      class="absolute rtl:left-0 ltr:right-0 top-12 w-[200px] origin-top-right rounded-2xl border border-n30 bg-white py-4 duration-500">
       <ul class="flex flex-col gap-3 rtl:pr-4 ltr:pl-4">
-        <li
-          v-for="{ id, name, link } in visibleLinks"
-          :key="id"
-          class="font-medium duration-500 hover:text-r300"
-        >
+        <li v-for="{ id, name, link } in visibleLinks" :key="id" class="font-medium duration-500 hover:text-r300">
           <router-link :to="link">{{ name }}</router-link>
         </li>
-        <li
-          v-if="logoutLink"
-          class="font-medium duration-500 hover:text-r300 cursor-pointer"
-          @click.stop="handleLogout"
-        >
+        <li v-if="logoutLink" class="font-medium duration-500 hover:text-r300 cursor-pointer"
+          @click.stop="handleLogout">
           {{ logoutLink.name }}
         </li>
       </ul>
@@ -54,7 +42,7 @@ const logoutLink = dashboardProfileLink.find((item) => item.name === "Logout");
 const handleLogout = async () => {
   try {
     await logout();
-  } catch (e) {}
+  } catch (e) { }
   localStorage.removeItem("token");
   localStorage.removeItem("userName");
   router.push("/sign-in");

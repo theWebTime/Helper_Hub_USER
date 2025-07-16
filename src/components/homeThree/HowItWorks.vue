@@ -10,23 +10,14 @@
         </p>
       </div>
 
-      <ul
-        class="stp-15 flex w-full items-center justify-center max-[480px]:flex-col max-[480px]:gap-4"
-      >
-        <li
-          v-for="{ id, name, icon } in tabButton"
-          :key="id"
-          :class="{
-            'border-b-4 border-r300': id === activeTab,
-            'border-b-2 border-n30': id !== activeTab,
-          }"
-          class="flex w-full items-center justify-center pb-4 sm:pb-6"
-          @click="handleClick(id)"
-        >
+      <ul class="stp-15 flex w-full items-center justify-center max-[480px]:flex-col max-[480px]:gap-4">
+        <li v-for="{ id, name, icon } in tabButton" :key="id" :class="{
+          'border-b-4 border-r300': id === activeTab,
+          'border-b-2 border-n30': id !== activeTab,
+        }" class="flex w-full items-center justify-center pb-4 sm:pb-6" @click="handleClick(id)">
           <div class="flex items-center justify-between gap-3">
             <span
-              class="flex items-center justify-center rounded-xl bg-n30 p-3 text-2xl !leading-none sm:p-[14px] sm:text-3xl"
-            >
+              class="flex items-center justify-center rounded-xl bg-n30 p-3 text-2xl !leading-none sm:p-[14px] sm:text-3xl">
               <component :is="icon" />
             </span>
             <button class="text-lg font-semibold">{{ name }}</button>
@@ -35,20 +26,16 @@
       </ul>
 
       <div class="stp-15">
-        <div
-          :class="{
-            activeTab: activeTab === 101,
-            hiddenTab: activeTab !== 101,
-          }"
-        >
+        <div :class="{
+          activeTab: activeTab === 101,
+          hiddenTab: activeTab !== 101,
+        }">
           <div class="grid grid-cols-12 gap-4">
-            <div
-              class="col-span-12 flex flex-col items-start justify-center md:col-span-5 lg:col-span-4"
-            >
-              <h3 class="heading-3">Tasker Evaluation</h3>
+            <div class="col-span-12 flex flex-col items-start justify-center md:col-span-5 lg:col-span-4">
+              <h3 class="heading-3">Register Your Details</h3>
               <p class="pt-3 text-n500">
-                Select a Tasker based on affordability, expertise, and customer
-                feedback, ensuring you find the perfect fit for your needs.
+                Create your Helper Hub account by filling in basic information like your name, phone number, and
+                preferred services. It only takes a few minutes and helps us understand your needs better.
               </p>
               <div class="pt-6 sm:pt-10">
                 <LinkButtonTwo link="/sign-up" text="Sign up now" />
@@ -59,20 +46,16 @@
             </div>
           </div>
         </div>
-        <div
-          :class="{
-            activeTab: activeTab === 102,
-            hiddenTab: activeTab !== 102,
-          }"
-        >
+        <div :class="{
+          activeTab: activeTab === 102,
+          hiddenTab: activeTab !== 102,
+        }">
           <div class="grid grid-cols-12 gap-4">
-            <div
-              class="col-span-12 flex flex-col items-start justify-center md:col-span-5 lg:col-span-4"
-            >
-              <h3 class="heading-3">Book Now</h3>
+            <div class="col-span-12 flex flex-col items-start justify-center md:col-span-5 lg:col-span-4">
+              <h3 class="heading-3">Choose Your Service & Schedule</h3>
               <p class="pt-3 text-n500">
-                Secure your spot at the event of your choice by booking your
-                tickets now through our convenient online booking platform.
+                Select the type of help you need — house cleaning, dish washing, kitchen help, cooking, or more. Pick
+                your preferred timing, and we’ll match you with a trained professional based on availability.
               </p>
               <div class="pt-6 sm:pt-10">
                 <LinkButtonTwo link="/sign-up" text="Sign up now" />
@@ -83,20 +66,16 @@
             </div>
           </div>
         </div>
-        <div
-          :class="{
-            activeTab: activeTab === 103,
-            hiddenTab: activeTab !== 103,
-          }"
-        >
+        <div :class="{
+          activeTab: activeTab === 103,
+          hiddenTab: activeTab !== 103,
+        }">
           <div class="grid grid-cols-12 gap-4">
-            <div
-              class="col-span-12 flex flex-col items-start justify-center md:col-span-5 lg:col-span-4"
-            >
-              <h3 class="heading-3">ChatTip Hub</h3>
+            <div class="col-span-12 flex flex-col items-start justify-center md:col-span-5 lg:col-span-4">
+              <h3 class="heading-3">Sit Back & Relax</h3>
               <p class="pt-3 text-n500">
-                Your Ultimate Destination for Chat-based Tips, Advice, and
-                Insights on a Variety of Topics and Interests.
+                Once booked, your helper will arrive at the scheduled time. You can track service status, communicate
+                with support, and even rate the service after it’s done — all through your dashboard.
               </p>
               <div class="pt-6 sm:pt-10">
                 <LinkButtonTwo link="/sign-up" text="Sign up now" />
@@ -119,9 +98,9 @@ import {
   PhSortDescending,
 } from "@phosphor-icons/vue";
 import { ref } from "vue";
-import illus1 from "/images/step_one_illus.png";
-import illus3 from "/images/step_three_illus.png";
-import illus2 from "/images/step_two_illus.png";
+import illus1 from "/images/register_details.jpg";
+import illus2 from "/images/service_schedule.jpg";
+import illus3 from "/images/sit_back_relex.jpg";
 import LinkButtonTwo from "../ui/LinkButtonTwo.vue";
 
 const activeTab = ref(101);

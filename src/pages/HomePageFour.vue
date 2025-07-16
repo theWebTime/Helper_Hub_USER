@@ -2,20 +2,20 @@
   <Header />
   <HeroSection />
   <HowItWorks />
-  <TopExperts :isBgGray="true" />
+  <!-- <TopExperts :isBgGray="true" /> -->
   <FixedService2 :isBgWhite="true" />
   <NewsLetter />
   <SecureGuard />
   <TestimonialFour />
   <RecentPost />
-  <GetWorker />
+  <!-- <GetWorker /> -->
   <GetHelpToday />
-  <FooterThree />
+  <FooterOne />
 </template>
 
 <script setup lang="ts">
 import Header from "../components/global/Header.vue";
-import FooterThree from "../components/global/footer/FooterThree.vue";
+import FooterOne from "../components/global/footer/footerOne.vue";
 import GetWorker from "../components/homeFour/GetWorker.vue";
 import HeroSection from "../components/homeFour/HeroSection.vue";
 import TestimonialFour from "../components/homeFour/TestimonialFour.vue";

@@ -1,24 +1,21 @@
 <template>
   <section class="relative overflow-hidden">
-    <div
-      class="absolute -bottom-40 rtl:-right-20 ltr:-left-20 size-[550px] rounded-full bg-eb100/20 max-lg:hidden"
-    ></div>
+    <div class="absolute -bottom-40 rtl:-right-20 ltr:-left-20 size-[550px] rounded-full bg-eb100/20 max-lg:hidden">
+    </div>
 
+    <div class="absolute -top-40 rtl:right-32 ltr:left-32 h-[600px] w-[550px] rounded-full bg-r50/30 max-lg:hidden">
+    </div>
     <div
-      class="absolute -top-40 rtl:right-32 ltr:left-32 h-[600px] w-[550px] rounded-full bg-r50/30 max-lg:hidden"
-    ></div>
-    <div
-      class="absolute -bottom-60 rtl:-left-40 ltr:-right-40 -z-10 size-[500px] rounded-full bg-eb50/20 max-lg:hidden"
-    ></div>
+      class="absolute -bottom-60 rtl:-left-40 ltr:-right-40 -z-10 size-[500px] rounded-full bg-eb50/20 max-lg:hidden">
+    </div>
 
     <div class="flex h-full items-center justify-start max-lg:justify-center">
       <LeftSideSlider />
       <div
-        class="flex h-full w-full max-w-[530px] flex-col items-start justify-start max-lg:px-6 max-lg:pt-40 lg:ml-20 xl:max-w-[380px] xxl:max-w-[530px] 3xl:ml-40"
-      >
-        <div class="">
+        class="flex h-full w-full max-w-[530px] flex-col items-start justify-start max-lg:px-6 max-lg:pt-40 lg:ml-20 xl:max-w-[380px] xxl:max-w-[530px] 3xl:ml-40">
+        <div class="w-full flex justify-center mb-4">
           <router-link to="/">
-            <img :src="logo" alt="" />
+            <img :src="logo" alt="Helper Hub White Logo" class="max-w-[100px] max-sm:max-w-[100px]" />
           </router-link>
         </div>
         <div class="flex items-center justify-start pt-8">
@@ -32,28 +29,17 @@
               <span class="text-2xl !leading-none">
                 <PhPhone />
               </span>
-              <input
-                v-model="mobile"
-                type="text"
-                placeholder="Enter Your Mobile"
-                class="w-full text-sm text-n300 outline-none"
-                autocomplete="tel"
-                required
-                :disabled="otpStep"
-              />
+              <input v-model="mobile" type="text" placeholder="Enter Your Mobile"
+                class="w-full text-sm text-n300 outline-none" autocomplete="tel" required :disabled="otpStep" />
             </div>
             <!-- OTP Field: only visible after OTP sent -->
-            <div v-if="otpStep" class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3 relative">
+            <div v-if="otpStep"
+              class="flex w-full items-center justify-start gap-3 rounded-2xl border border-n30 px-4 py-3 relative">
               <span class="text-2xl !leading-none">
                 <PhLock />
               </span>
-              <input
-                v-model="otp"
-                type="text"
-                placeholder="Enter OTP"
-                class="w-full text-sm text-n300 outline-none"
-                required
-              />
+              <input v-model="otp" type="text" placeholder="Enter OTP" class="w-full text-sm text-n300 outline-none"
+                required />
               <span v-if="otpTimer > 0" class="ml-2 text-xs text-gray-500 absolute right-4">
                 {{ Math.floor(otpTimer / 60) }}:{{ (otpTimer % 60).toString().padStart(2, '0') }}
               </span>
@@ -67,34 +53,22 @@
             {{ successMsg }}
           </div>
           <div class="w-full">
-            <router-link
-              to="/reset-password"
-              class="block py-3 text-end text-sm font-medium text-n300"
-            >
+            <router-link to="/reset-password" class="block py-3 text-end text-sm font-medium text-n300">
               Forgot Password?
             </router-link>
-            <button
-              type="submit"
+            <button type="submit"
               class="relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-3 font-semibold text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] sm:px-8"
-              :disabled="loading || (otpStep && otpTimer === 0)"
-            >
+              :disabled="loading || (otpStep && otpTimer === 0)">
               <span class="relative z-10">
                 <span v-if="!loading">{{ otpStep ? "Verify OTP" : "Send OTP" }}</span>
                 <span v-else>{{ otpStep ? "Verifying..." : "Sending..." }}</span>
               </span>
             </button>
-            <button
-              v-if="otpStep && otpTimer === 0"
-              @click.prevent="handleResendOtp"
-              class="mt-2 text-xs text-b300 underline"
-              :disabled="loading"
-              type="button"
-            >
+            <button v-if="otpStep && otpTimer === 0" @click.prevent="handleResendOtp"
+              class="mt-2 text-xs text-b300 underline" :disabled="loading" type="button">
               Resend OTP
             </button>
-            <div
-              class="flex items-center justify-center gap-2 py-3 text-sm font-medium"
-            >
+            <div class="flex items-center justify-center gap-2 py-3 text-sm font-medium">
               <p class="text-n300">Don’t have an account?</p>
               <router-link to="/sign-up" class="text-b300 underline">
                 Sign Up with Email
@@ -125,7 +99,7 @@
 import { ref, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { PhEnvelopeSimple, PhLock, PhPhone } from "@phosphor-icons/vue";
-import logo from "/images/logo.png";
+import logo from "/images/hh_round_header.png";
 import icon2 from "/images/victor_icon.png";
 import LeftSideSlider from "../components/authentication/LeftSideSlider.vue";
 import { sendLoginOtp, verifyLoginOtp } from '../api/auth';

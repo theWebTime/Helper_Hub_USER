@@ -3,7 +3,7 @@ import { randomSubService } from "../api/service";
 
 export const useRandomSubServiceStore = defineStore("randomSubService", {
     state: () => ({
-        data: [] as Array<{ id: number; name: string }>,
+        data: [] as Array<{ id: number; name: string; image: string }>, // <-- Add image here
         loading: false,
         error: null as string | null,
     }),

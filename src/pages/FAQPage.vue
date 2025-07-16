@@ -8,11 +8,15 @@
       <FaqSection />
     </div>
   </section>
+  <section class="">
+    <FooterOne />
+  </section>
 </template>
 
 <script setup lang="ts">
 import FaqSection from "../components/aboutUs/FaqSection.vue";
 import BreadCrumb2 from "../components/global/BreadCrumb2.vue";
+import FooterOne from "../components/global/footer/footerOne.vue";
 </script>
 
 <style scoped></style>
