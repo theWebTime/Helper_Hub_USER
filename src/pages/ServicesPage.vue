@@ -26,6 +26,11 @@ const loadingPincodes = ref(false);
 const subServices = ref<any[]>([]);
 const loadingSubServices = ref(false);
 
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+function getImageUrl(image: string) {
+  return image ? `${baseUrl}/images/subService/${image}` : "";
+}
+
 onMounted(async () => {
   // Load services
   loadingServices.value = true;
@@ -128,20 +133,16 @@ function getStartingPrice(item: any) {
             <!-- Location (Static: Ahmedabad) -->
             <div class="rounded-xl bg-n10 p-6">
               <p class="pb-3 text-lg font-semibold">Location</p>
-              <select
-                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none bg-n10 text-n900"
-                disabled
-              >
+              <select class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none bg-n10 text-n900"
+                disabled>
                 <option value="Ahmedabad" selected>Ahmedabad</option>
               </select>
             </div>
             <!-- Service Dropdown -->
             <div class="rounded-xl bg-n10 p-6">
               <p class="pb-3 text-lg font-semibold">Service</p>
-              <select
-                v-model="selectedService"
-                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none"
-              >
+              <select v-model="selectedService"
+                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none">
                 <option disabled value="">Select Service</option>
                 <option v-for="service in services" :key="service.id" :value="service.id">
                   {{ service.name }}
@@ -151,27 +152,20 @@ function getStartingPrice(item: any) {
             <!-- Pincode Dropdown -->
             <div class="rounded-xl bg-n10 p-6">
               <p class="pb-3 text-lg font-semibold">Pincode</p>
-              <select
-                v-model="selectedPincode"
-                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none"
-              >
+              <select v-model="selectedPincode"
+                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none">
                 <option disabled value="">Select Pincode</option>
                 <option v-for="pin in pincodes" :key="pin.id" :value="pin.id">
                   {{ pin.pin_code }}
                 </option>
               </select>
             </div>
-            <button
-              @click="handleSearch"
-              class="relative flex items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-2 font-medium text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] lg:px-8 lg:py-3"
-            >
+            <button @click="handleSearch"
+              class="relative flex items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-2 font-medium text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] lg:px-8 lg:py-3">
               <span class="relative z-10">Search</span>
             </button>
-            <button
-              @click="handleClear"
-              type="button"
-              class="flex-1 flex items-center justify-center overflow-hidden rounded-xl border border-n40 bg-white px-4 py-2 font-medium text-n900 hover:bg-n30 duration-200"
-            >
+            <button @click="handleClear" type="button"
+              class="flex-1 flex items-center justify-center overflow-hidden rounded-xl border border-n40 bg-white px-4 py-2 font-medium text-n900 hover:bg-n30 duration-200">
               Clear
             </button>
           </div>
@@ -182,13 +176,9 @@ function getStartingPrice(item: any) {
         <div class="flex flex-col gap-4">
           <div v-if="loadingSubServices" class="text-center py-8">Loading...</div>
           <div v-else-if="subServices.length === 0" class="text-center py-8 text-n400">No subservices found.</div>
-          <ServiceCard
-            v-for="(item, idx) in subServices"
-            :key="item.id"
-            :img="item.image || '/images/default.png'"
-            :name="item.name"
-            :startingPrice="getStartingPrice(item)"
-          />
+          <ServiceCard v-for="(item, idx) in subServices" :key="item.id"
+            :img="getImageUrl(item.image) || '/images/default.png'" :name="item.name"
+            :startingPrice="getStartingPrice(item)" />
         </div>
         <!-- <div class="container pt-8">
           <Pagination />
