@@ -1,96 +1,123 @@
 <template>
-  <div class="">
-    <h4 class="heading-4">Let's start with the basics</h4>
-    <p class="pb-4 pt-6 lg:pt-10">In a few words, what do you need done?*</p>
-    <input type="text" class="w-full rounded-2xl bg-n30 p-3 outline-none" />
+  <div class="space-y-6">
+    <!-- Service Type -->
+    <div class="text-sm font-medium text-b300">
+      {{ subservice?.service_id === 2 ? 'Monthly Service' : 'One-Time Service' }}
+    </div>
 
-    <p class="pb-4 pt-6 font-medium text-n300 lg:pt-10">
-      When do you need this done?*
-    </p>
-    <div class="flex flex-wrap items-center justify-start gap-2">
-      <div class="">
-        <p class="pb-3 font-semibold">On Date</p>
-        <input
-          type="date"
-          class="rounded-full border border-n900 px-4 py-3 outline-none"
-        />
-      </div>
-
-      <div class="">
-        <p class="pb-3 font-semibold">Before Date</p>
-        <input
-          type="date"
-          class="rounded-full border border-n900 px-4 py-3 outline-none"
-        />
-      </div>
-
-      <div class="">
-        <p class="pb-3 font-semibold">Anytime</p>
-        <button
-          class="rounded-full border border-n900 bg-n900 px-4 py-3 font-medium text-white"
-        >
-          I'm flexible
-        </button>
+    <!-- Subservice Info -->
+    <div class="flex flex-col md:flex-row gap-6 items-center border border-n30 rounded-2xl p-4">
+      <img
+        :src="getImageUrl(subservice?.image)"
+        alt="Subservice Image"
+        class="w-full md:w-40 h-40 object-cover rounded-xl"
+      />
+      <div class="flex-1">
+        <h3 class="text-xl font-semibold">{{ subservice?.name }}</h3>
+        <p class="text-sm text-n500 mt-2">{{ subservice?.description }}</p>
       </div>
     </div>
 
-    <div
-      class="flex items-center justify-start gap-2 pb-6 pt-6 font-medium lg:pb-10"
-    >
-      <input type="checkbox" />
-      <p>I need a certain time of day</p>
-    </div>
+    <!-- Date & Time Selection -->
+    <div class="grid grid-cols-12 gap-4">
+      <!-- From Date (Monthly) -->
+      <div class="col-span-6" v-if="subservice?.service_id === 2">
+        <p class="pb-2 font-semibold">From Date</p>
+        <input
+          v-model="localData.date_from"
+          type="date"
+          :min="today"
+          class="w-full rounded-full border border-n900 px-4 py-3 outline-none"
+        />
+      </div>
 
-    <div class="flex flex-wrap items-center justify-start gap-3">
-      <div
-        v-for="({ id, time, hour }, idx) in timeSelect"
-        :key="id"
-        @click="handleClick(idx)"
-        :class="{
-          'bg-n900 text-white': idx === selectTime,
-          'bg-n30': idx !== selectTime,
-        }"
-        class="cursor-pointer rounded-2xl px-3 py-3 text-center duration-500 hover:bg-n900 hover:text-white lg:px-5 lg:py-6"
-      >
-        <p class="font-semibold">{{ time }}</p>
-        <p class="text-sm font-medium">{{ hour }}</p>
+      <!-- To Date (Auto calculated, disabled) -->
+      <div class="col-span-6" v-if="subservice?.service_id === 2">
+        <p class="pb-2 font-semibold">To Date</p>
+        <input
+          :value="localData.date_to"
+          type="date"
+          disabled
+          class="w-full bg-gray-100 text-gray-600 rounded-full border border-n900 px-4 py-3 outline-none"
+        />
+      </div>
+
+      <!-- One-Time Date -->
+      <div class="col-span-6" v-if="subservice?.service_id === 1">
+        <p class="pb-2 font-semibold">Select Date</p>
+        <input
+          v-model="localData.date"
+          type="date"
+          :min="today"
+          class="w-full rounded-full border border-n900 px-4 py-3 outline-none"
+        />
+      </div>
+
+      <!-- Time -->
+      <div class="col-span-6">
+        <p class="pb-2 font-semibold">Select Time</p>
+        <input
+          v-model="localData.time"
+          type="time"
+          class="w-full rounded-full border border-n900 px-4 py-3 outline-none"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { v4 as uuidv4 } from "uuid";
-import { ref } from "vue";
+import { watch, reactive } from 'vue'
+import { useSubserviceStore } from '../../stores/subservice'
 
-const timeSelect = [
-  {
-    id: uuidv4(),
-    time: "Morning",
-    hour: "Before 10am",
-  },
-  {
-    id: uuidv4(),
-    time: "Morning",
-    hour: "After 10am",
-  },
-  {
-    id: uuidv4(),
-    time: "Evening",
-    hour: "Before 10pm",
-  },
-  {
-    id: uuidv4(),
-    time: "Evening",
-    hour: "After 10am",
-  },
-];
+const props = defineProps<{
+  modelValue: {
+    date: string
+    date_from?: string
+    date_to?: string
+    time: string
+  }
+}>()
 
-const selectTime = ref(0);
+const emit = defineEmits(['update:modelValue'])
 
-function handleClick(idx: number) {
-  selectTime.value = idx;
+const subserviceStore = useSubserviceStore()
+const subservice = subserviceStore.selectedSubservice
+
+const today = new Date().toISOString().split('T')[0]
+
+function addDays(dateStr: string, days: number) {
+  const date = new Date(dateStr)
+  date.setDate(date.getDate() + days)
+  return date.toISOString().split('T')[0]
+}
+
+const localData = reactive({
+  date: props.modelValue.date || today,
+  date_from: props.modelValue.date_from || today,
+  date_to: props.modelValue.date_to || addDays(today, 30),
+  time: props.modelValue.time || '',
+})
+
+// Automatically update date_to when date_from changes
+watch(
+  () => localData.date_from,
+  (newDateFrom) => {
+    if (subservice?.service_id === 2) {
+      localData.date_to = addDays(newDateFrom, 30)
+    }
+  }
+)
+
+// Sync with parent
+watch(
+  () => ({ ...localData }),
+  (val) => emit('update:modelValue', val),
+  { deep: true }
+)
+
+const baseUrl = import.meta.env.VITE_APP_BASE_URL
+function getImageUrl(img: string) {
+  return img ? `${baseUrl}/images/subService/${img}` : ''
 }
 </script>
-
-<style scoped></style>
