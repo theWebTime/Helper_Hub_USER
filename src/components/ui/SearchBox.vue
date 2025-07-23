@@ -1,6 +1,7 @@
 <template>
   <div class="relative z-20 w-full rounded-3xl border border-n20 bg-white p-4 sm:p-8">
-    <form @submit.prevent="handleSearch" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-lg font-medium max-sm:text-sm">
+    <form @submit.prevent="handleSearch"
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-lg font-medium max-sm:text-sm">
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 w-full">
         <!-- Location Dropdown -->
         <div ref="locationModalRef" class="relative flex items-center gap-2 w-full sm:w-auto">
@@ -19,15 +20,9 @@
             :class="{
               'visible scale-100 opacity-100': locationDropdownOpen,
               'invisible scale-0 opacity-0': !locationDropdownOpen,
-            }"
-          >
-            <button
-              v-for="(item, idx) in city_names"
-              @click="handleLocationItemClick(item)"
-              :key="idx"
-              type="button"
-              class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap"
-            >
+            }">
+            <button v-for="(item, idx) in city_names" @click="handleLocationItemClick(item)" :key="idx" type="button"
+              class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap">
               {{ item }}
             </button>
           </div>
@@ -45,22 +40,17 @@
             <PhCaretDown class="ml-1" />
           </span>
           <div
-            class="absolute rtl:right-0 ltr:left-0 top-10 w-[200px] origin-top rounded-none border border-n30 bg-white py-2 text-base shadow-lg duration-700 max-sm:text-sm sm:-left-8 sm:py-2 max-h-[300px] overflow-y-auto overflow-x-hidden z-10"
+            class="absolute rtl:right-0 ltr:left-0 top-10 w-[150px] origin-top rounded-3xl border border-n30 bg-white py-3 text-base shadow-lg duration-700 max-sm:text-sm sm:-left-8 sm:w-[200px] sm:py-5 max-h-[300px] overflow-y-auto overflow-x-hidden z-10"
             :class="{
               'visible scale-100 opacity-100': serviceDropdownOpen,
               'invisible scale-0 opacity-0': !serviceDropdownOpen,
-            }"
-          >
+            }">
             <div v-if="loadingServices" class="text-center py-2">Loading...</div>
             <div v-else-if="services.length === 0" class="text-center py-2">No services found.</div>
             <div v-else>
-              <button
-                v-for="item in services"
-                :key="item.id"
-                type="button"
+              <button v-for="item in services" :key="item.id" type="button"
                 class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap"
-                @click="handleServiceItemClick(item.id)"
-              >
+                @click="handleServiceItemClick(item.id)">
                 {{ item.name }}
               </button>
             </div>
@@ -83,28 +73,21 @@
             :class="{
               'visible scale-100 opacity-100': pincodeDropdownOpen,
               'invisible scale-0 opacity-0': !pincodeDropdownOpen,
-            }"
-          >
+            }">
             <div v-if="loadingPincodes" class="text-center py-2">Loading...</div>
             <div v-else-if="pincodes.length === 0" class="text-center py-2">No pincodes found.</div>
             <div v-else>
-              <button
-                v-for="pin in pincodes"
-                :key="pin.id"
-                type="button"
+              <button v-for="pin in pincodes" :key="pin.id" type="button"
                 class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap"
-                @click="handlePincodeItemClick(pin.id)"
-              >
+                @click="handlePincodeItemClick(pin.id)">
                 {{ pin.pin_code }}
               </button>
             </div>
           </div>
         </div>
       </div>
-      <button
-        type="submit"
-        class="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] px-8 py-3 w-full sm:w-auto"
-      >
+      <button type="submit"
+        class="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] px-8 py-3 w-full sm:w-auto">
         <span class="text-base !leading-none sm:text-xl md:hidden">
           <PhMagnifyingGlass />
         </span>

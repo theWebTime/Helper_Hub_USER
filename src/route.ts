@@ -45,140 +45,140 @@ export const router = createRouter({
     {
       path: "/",
       component: HomePageFour,
-      meta: { title: "Home - Helper Hub Vue App" },
+      meta: { title: "Home - Helper Hub" },
     },
     // creating custom routes
     {
       path: "/payment",
       component: Payment,
-      meta: { title: "Home - Helper Hub Vue App", requiresAuth: true },
+      meta: { title: "Home - Helper Hub", requiresAuth: true },
     },
-    {
+    /* {
       path: "/home-two",
       component: HomePageTwo,
-      meta: { layout: EmptyLayout, title: "Home Two - Helper Hub Vue App" },
+      meta: { layout: EmptyLayout, title: "Home Two - Helper Hub" },
     },
     {
       path: "/home-three",
       component: HomePageThree,
-      meta: { layout: EmptyLayout, title: "Home Three - Helper Hub Vue App" },
+      meta: { layout: EmptyLayout, title: "Home Three - Helper Hub" },
     },
     {
       path: "/home-four",
       component: HomePageFour,
-      meta: { layout: EmptyLayout, title: "Home Four - Helper Hub Vue App" },
-    },
+      meta: { layout: EmptyLayout, title: "Home Four - Helper Hub" },
+    }, */
     {
       path: "/services",
       component: ServicesPage,
-      meta: { title: "All Services - Helper Hub Vue App" },
+      meta: { title: "All Services - Helper Hub" },
     },
     {
       path: "/services/service-details",
       component: ServiceDetails,
-      meta: { title: "Service Details - Helper Hub Vue App" },
+      meta: { title: "Service Details - Helper Hub" },
     },
     {
       path: "/browse-tasks",
       component: BrowseTasks,
-      meta: { title: "Browse Tasks - Helper Hub Vue App" },
+      meta: { title: "Browse Tasks - Helper Hub" },
     },
     {
       path: "/find-workers",
       component: FindWorkers,
-      meta: { title: "Find Workers - Helper Hub Vue App" },
-    },
+      meta: { title: "Find Workers - Helper Hub" },
+    },/* 
     {
       path: "/worker-profile",
       component: WorkerProfile,
-      meta: { title: "Workers Profile - Helper Hub Vue App", requiresAuth: true },
+      meta: { title: "Workers Profile - Helper Hub", requiresAuth: true },
     },
     {
       path: "/find-workers/:name",
       component: WorkerProfile,
-      meta: { title: "Workers Profile - Helper Hub Vue App" },
+      meta: { title: "Workers Profile - Helper Hub" },
     },
     {
       path: "/hire-me",
       component: HireWorker,
-      meta: { title: "Hire Worker - Helper Hub Vue App" },
-    },
+      meta: { title: "Hire Worker - Helper Hub" },
+    }, */
     {
       path: "/about-us",
       component: AboutUsPage,
-      meta: { title: "About Us - Helper Hub Vue App" },
+      meta: { title: "About Us - Helper Hub" },
     },
-    {
-      path: "/blog",
-      component: BlogPage,
-      meta: { title: "Blog - Helper Hub Vue App" },
-    },
-    {
-      path: "/blog/blog-details",
-      component: BlogDetailsPage,
-      meta: { title: "Blog Details - Helper Hub Vue App" },
-    },
-    {
-      path: "/blog/:title",
-      component: BlogDetailsPage,
-      meta: { title: "Blog Details - Helper Hub Vue App" },
-    },
-    {
-      path: "/chat",
-      component: ChatPage,
-      meta: { title: "Chat - Helper Hub Vue App" },
-    },
+    /*  {
+       path: "/blog",
+       component: BlogPage,
+       meta: { title: "Blog - Helper Hub" },
+     },
+     {
+       path: "/blog/blog-details",
+       component: BlogDetailsPage,
+       meta: { title: "Blog Details - Helper Hub" },
+     },
+     {
+       path: "/blog/:title",
+       component: BlogDetailsPage,
+       meta: { title: "Blog Details - Helper Hub" },
+     },
+     {
+       path: "/chat",
+       component: ChatPage,
+       meta: { title: "Chat - Helper Hub" },
+     }, */
     {
       path: "/faq",
       component: FAQPage,
-      meta: { title: "FAQ - Helper Hub Vue App" },
+      meta: { title: "FAQ - Helper Hub" },
     },
     {
       path: "/contact",
       component: ContactPage,
-      meta: { title: "Contact - Helper Hub Vue App" },
+      meta: { title: "Contact - Helper Hub" },
     },
     {
       path: "/privacy-policy",
       component: PrivacyPolicy,
-      meta: { title: "Privacy Policy - Helper Hub Vue App" },
+      meta: { title: "Privacy Policy - Helper Hub" },
     },
     {
       path: "/terms-conditions",
       component: TermsConditions,
-      meta: { title: "Terms & Conditions - Helper Hub Vue App" },
+      meta: { title: "Terms & Conditions - Helper Hub" },
     },
     {
       path: "/become-tasker",
       component: BecomeTasker,
-      meta: { title: "Become Tasker - Helper Hub Vue App" },
+      meta: { title: "Become Tasker - Helper Hub" },
     },
     {
       path: "/post-task",
       component: PostSteps,
-      meta: { layout: EmptyLayout, title: "Post A Task - Helper Hub Vue App" },
+      meta: { layout: EmptyLayout, title: "Post A Task - Helper Hub" },
     },
     {
       path: "/sign-in",
       component: SignInPage,
-      meta: { layout: EmptyLayout, title: "Sign In - Helper Hub Vue App" },
+      meta: { layout: EmptyLayout, title: "Sign In - Helper Hub" },
     },
     // {
     //   path: "/reset-password",
     //   component: ResetPassword,
-    //   meta: { layout: EmptyLayout, title: "Sign In - Helper Hub Vue App" },
+    //   meta: { layout: EmptyLayout, title: "Sign In - Helper Hub" },
     // },
     {
       path: "/sign-up",
       component: SignUpPage,
-      meta: { layout: EmptyLayout, title: "Sign Up - Helper Hub Vue App" },
+      meta: { layout: EmptyLayout, title: "Sign Up - Helper Hub" },
     },
-    {
+    /* {
       path: "/worker-portfolio",
       component: WorkerPortfolio,
       meta: {
         layout: EmptyLayout,
-        title: "Workers Portfolio - Helper Hub Vue App",
+        title: "Workers Portfolio - Helper Hub",
       },
     },
     {
@@ -186,20 +186,20 @@ export const router = createRouter({
       component: WorkerPortfolioDetails,
       meta: {
         layout: EmptyLayout,
-        title: "Workers Portfolio Details - Helper Hub Vue App",
+        title: "Workers Portfolio Details - Helper Hub",
       },
-    },
+    }, */
 
     // Dashboard Pages
     {
       path: "/dashboard/home",
       component: DashboardHome,
-      meta: { layout: DashboardLayout, title: "Dashboard - Helper Hub Vue App" },
+      meta: { layout: DashboardLayout, title: "Dashboard - Helper Hub" },
     },
     {
       path: "/dashboard/services",
       component: DashboardServicesPage,
-      meta: { layout: DashboardLayout, title: "Services - Helper Hub Vue App" },
+      meta: { layout: DashboardLayout, title: "Services - Helper Hub" },
     },
 
     {
@@ -207,16 +207,16 @@ export const router = createRouter({
       component: PaymentDetails,
       meta: {
         layout: DashboardLayout,
-        title: "Payment Details - Helper Hub Vue App",
+        title: "Payment Details - Helper Hub",
       },
     },
 
-    {
+    /* {
       path: "/dashboard/wishlist",
       component: WishList,
       meta: {
         layout: DashboardLayout,
-        title: "Wishlist - Helper Hub Vue App",
+        title: "Wishlist - Helper Hub",
       },
     },
 
@@ -225,16 +225,16 @@ export const router = createRouter({
       component: ReviewPage,
       meta: {
         layout: DashboardLayout,
-        title: "Reviews - Helper Hub Vue App",
+        title: "Reviews - Helper Hub",
       },
-    },
+    }, */
 
     {
       path: "/dashboard/profile",
       component: ProfilePage,
       meta: {
         // layout: DashboardLayout,
-        title: "Profile - Helper Hub Vue App",
+        title: "Profile - Helper Hub",
         requiresAuth: true,
       },
     },
@@ -243,7 +243,7 @@ export const router = createRouter({
       component: ManageAddress,
       meta: {
         // layout: DashboardLayout,
-        title: "Address - Helper Hub Vue App",
+        title: "Address - Helper Hub",
         requiresAuth: true,
       },
     },
@@ -252,7 +252,7 @@ export const router = createRouter({
       component: EditProfile,
       meta: {
         layout: DashboardLayout,
-        title: "Edit Profile - Helper Hub Vue App",
+        title: "Edit Profile - Helper Hub",
       },
     },
     {
@@ -260,7 +260,7 @@ export const router = createRouter({
       component: SettingsPage,
       meta: {
         layout: DashboardLayout,
-        title: "Edit Profile - Helper Hub Vue App",
+        title: "Edit Profile - Helper Hub",
       },
     },
     {
@@ -268,7 +268,7 @@ export const router = createRouter({
       component: EditServices,
       meta: {
         layout: DashboardLayout,
-        title: "Edit Services - Helper Hub Vue App",
+        title: "Edit Services - Helper Hub",
       },
     },
     {
@@ -276,7 +276,7 @@ export const router = createRouter({
       component: NotFound,
       meta: {
         layout: EmptyLayout,
-        title: "Not Found - Helper Hub Vue App",
+        title: "Not Found - Helper Hub",
       },
     },
   ],

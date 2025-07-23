@@ -92,10 +92,10 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, FreeMode } from "swiper/modules";
 
-import sliderImg1 from "/images/home_four_hero1.png";
-import sliderImg2 from "/images/home_four_hero2.png";
-import sliderImg3 from "/images/home_four_hero3.png";
-import sliderImg4 from "/images/home_four_hero4.png";
+import sliderImg1 from "/images/home1.png";
+import sliderImg2 from "/images/home2.png";
+import sliderImg3 from "/images/home3.png";
+import sliderImg4 from "/images/home4.png";
 import SearchBox from "../ui/SearchBox.vue";
 
 import { onMounted } from "vue";
@@ -108,6 +108,10 @@ onMounted(() => {
 });
 
 const sliderImages = [
+  sliderImg1,
+  sliderImg2,
+  sliderImg3,
+  sliderImg4,
   sliderImg1,
   sliderImg2,
   sliderImg3,

@@ -6,13 +6,15 @@
       <form @submit.prevent="handleSubmit">
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Pin Code</label>
-          <select v-model="form.pin_code_id" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" required>
+          <select v-model="form.pin_code_id" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none"
+            required>
             <option value="">Select Pin Code</option>
             <option v-for="pincode in pincodeList" :key="pincode.id" :value="pincode.id">
               {{ pincode.pin_code }}
             </option>
           </select>
-          <span v-if="validationErrors.pin_code_id" class="text-xs text-red-500">{{ validationErrors.pin_code_id[0] }}</span>
+          <span v-if="validationErrors.pin_code_id" class="text-xs text-red-500">{{ validationErrors.pin_code_id[0]
+          }}</span>
         </div>
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Type</label>
@@ -26,35 +28,43 @@
         </div>
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Address</label>
-          <input v-model="form.address" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" required />
+          <input v-model="form.address" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none"
+            required />
           <span v-if="validationErrors.address" class="text-xs text-red-500">{{ validationErrors.address[0] }}</span>
         </div>
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Title</label>
-          <input v-model="form.title" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" />
+          <input v-model="form.title" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none"
+            required />
         </div>
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Name</label>
-          <input v-model="form.name" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" />
+          <input v-model="form.name" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none"
+            required />
         </div>
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Phone</label>
-          <input v-model="form.phone" type="text" maxlength="10" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" />
+          <input v-model="form.phone" type="number" maxlength="10"
+            class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" required />
         </div>
         <div class="mb-3">
           <label class="block pb-2 font-medium text-n100">Landmark</label>
-          <input v-model="form.landmark" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none" />
+          <input v-model="form.landmark" type="text" class="w-full rounded-xl border border-b50 bg-n10 p-3 outline-none"
+            required />
         </div>
         <div class="mb-3 flex items-center gap-2">
-          <input v-model="form.is_default" type="checkbox" id="is_default" />
+          <input v-model="form.is_default" type="checkbox" id="is_default" required />
           <label for="is_default" class="font-medium text-n100">Set as default</label>
         </div>
         <div class="flex gap-2 mt-4">
-          <button type="submit" class="flex-1 rounded-xl bg-b300 px-8 py-3 font-semibold text-white duration-200 hover:bg-b400" :disabled="loading">
+          <button type="submit"
+            class="flex-1 rounded-xl bg-b300 px-8 py-3 font-semibold text-white duration-200 hover:bg-b400"
+            :disabled="loading">
             <span v-if="!loading">{{ mode === 'add' ? 'Add' : 'Update' }}</span>
             <span v-else>Saving...</span>
           </button>
-          <button class="flex-1 rounded-xl bg-n20 px-8 py-3 font-semibold text-n700" type="button" @click="$emit('close')">Cancel</button>
+          <button class="flex-1 rounded-xl bg-n20 px-8 py-3 font-semibold text-n700" type="button"
+            @click="$emit('close')">Cancel</button>
         </div>
         <div v-if="error" class="text-red-500 text-sm mt-2">{{ error }}</div>
       </form>
@@ -76,7 +86,7 @@ const emit = defineEmits(['close', 'saved'])
 const loading = ref(false)
 const error = ref('')
 const validationErrors = ref<Record<string, string[]>>({})
-const pincodeList = ref<{id: number, pin_code: string}[]>([])
+const pincodeList = ref<{ id: number, pin_code: string }[]>([])
 
 const form = ref({
   pin_code_id: '',

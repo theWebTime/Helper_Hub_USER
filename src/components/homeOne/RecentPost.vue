@@ -6,7 +6,7 @@
           Our Best <span class="text-b300">Services</span>
         </h2>
         <RouterLink to="/services" class="flex items-center gap-2 text-b300 font-bold hover:text-b400">
-          All Services
+          View All Services
           <PhArrowRight weight="bold" />
         </RouterLink>
       </div>
@@ -15,7 +15,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="service in services" :key="service.id"
             class="rounded-xl bg-white shadow p-4 flex flex-col items-center">
-            <img :src="getImageUrl(service.image)" alt="Service Image" class="w-40 h-40 object-cover rounded-xl mb-4" />
+            <img :src="getImageUrl(service.image)" alt="Service Image" class="w-60 h-60 object-cover rounded-xl mb-4" />
             <h3 class="text-lg font-semibold text-n900">{{ service.name }}</h3>
           </div>
         </div>

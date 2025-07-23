@@ -11,6 +11,7 @@
   <!-- <GetWorker /> -->
   <GetHelpToday />
   <FooterOne />
+  <WhatsappFloat />
 </template>
 
 <script setup lang="ts">
@@ -26,6 +27,7 @@ import RecentPost from "../components/homeOne/RecentPost.vue";
 import SecureGuard from "../components/homeOne/SecureGuard.vue";
 import TopExperts from "../components/homeOne/TopExperts.vue";
 import HowItWorks from "../components/homeThree/HowItWorks.vue";
+import WhatsappFloat from "../components/global/WhatsappFloat.vue";
 </script>
 
 <style scoped></style>

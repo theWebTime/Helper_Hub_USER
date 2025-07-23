@@ -10,10 +10,10 @@
       'translate-y-0 delay-500 opacity-100  visible': showMobileMenu,
       'translate-y-[100%] opacity-50 invisible': !showMobileMenu,
     }"
-      class="fixed rtl:right-0 ltr:left-0 top-0 z-[999] flex h-full w-3/4 flex-col items-start justify-start gap-8 bg-r300 text-white/80 duration-700 min-[500px]:w-1/2 lg:hidden lg:gap-20">
-      <div class="fixed top-0 flex w-full items-center justify-between bg-r300 p-4 sm:p-8">
+      class="fixed rtl:right-0 ltr:left-0 top-0 z-[999] flex h-full w-3/4 flex-col items-start justify-start gap-8 bg-n900 text-white/80 duration-700 min-[500px]:w-1/2 lg:hidden lg:gap-20">
+      <div class="fixed top-0 flex w-full items-center justify-between bg-n900 p-4 sm:p-8">
         <router-link to="/">
-          <img v-if="logo" :src="logo" alt="Helper Hub White Logo" class="max-w-[70px] max-sm:max-w-[80px]" />
+          <img v-if="logo" :src="logo" alt="Helper Hub White Logo" class="max-w-[70px] max-sm:max-w-[70px]" />
           <div v-else>
             <span>Loading logo...</span>
           </div>
@@ -25,9 +25,16 @@
 
       <ul
         class="flex w-full flex-col items-start gap-6 overflow-y-auto pb-10 rtl:pr-8 ltr:pl-8 pt-24 text-lg sm:text-xl lg:gap-10">
-        <li v-for="menu in headerMenu" :key="menu.id">
-          <div v-if="menu.isSubmenu" :class="{ underline: isMenuActive(menu) }"
-            class="subMenuToggle group flex flex-col items-start justify-start">
+        <li v-for="menu in headerMenu" :key="menu.id" class="w-full">
+          <!-- Home as direct link -->
+          <router-link v-if="menu.name === 'Home'" :to="menu.submenu && menu.submenu[0] ? menu.submenu[0].link : '/'"
+            class="w-full flex items-center px-2 py-3 rounded-lg hover:text-b500 duration-300 font-semibold"
+            :class="{ 'text-white': isMenuActive(menu) }" @click="showToggle">
+            {{ menu.name }}
+          </router-link>
+
+          <!-- Accordion style for submenus (mobile) -->
+          <div v-else-if="menu.isSubmenu" class="w-full">
             <div class="flex cursor-pointer items-center justify-start" @click="handleToggle(menu.id)">
               <span class="">{{ menu.name }}</span>
 
@@ -35,28 +42,57 @@
                 <PhCaretRight />
               </span>
             </div>
-            <AnimateHeight :duration="700" :height="showCollapseMenu === menu.id ? 'auto' : 0">
-              <ul class="flex flex-col items-start justify-start gap-2 overflow-hidden pl-4 duration-700">
-                <li v-for="{ id, name, link } in menu.submenu" :key="id">
-                  <router-link :to="link" :class="{ underline: isMenuActive(menu) }" class="text-base"
+            <transition name="fade">
+              <ul v-show="showCollapseMenu === menu.id" class="w-full flex flex-col items-start gap-2 pl-4 pt-1 pb-2 ">
+                <li v-for="{ id, name, link } in menu.submenu" :key="id" class="w-full">
+                  <router-link :to="link" :class="{ 'text-white': isMenuActive(menu) }"
+                    class="w-full text-base py-1 px-2 rounded hover:text-y200 hover:bg-b400 duration-300 font-semibold"
                     @click="showToggle">
-                    <span>-</span> {{ name }}
+                    {{ name }}
                   </router-link>
                 </li>
               </ul>
-            </AnimateHeight>
+            </transition>
           </div>
 
+          <!-- Non-submenu direct links -->
           <router-link v-if="!menu.isSubmenu" to="#" class="hover:text-b500 duration-300">
             {{ menu.name }}
           </router-link>
         </li>
-      </ul>
 
-      <router-link to="/become-tasker"
-        class="rtl:mr-4 ltr:ml-4 rounded-full bg-y300 px-4 py-2 text-base font-medium text-n900">
-        Become A Tasker
-      </router-link>
+        <li>
+          <router-link to="/services" class="
+                  w-full
+                  rounded-full
+                  px-2 py-1
+                  font-semibold
+                  text-white
+                  bg-gradient-to-r from-b500 via-pink-500 to-yellow-400
+                  shadow
+                  border border-white
+                  hover:scale-105 hover:shadow-md hover:from-yellow-400 hover:to-b500
+                  transition-all duration-300
+                  flex items-center justify-center gap-1
+                  animate-pulse
+                  text-sm
+                " style="animation-duration:2s;" @click="showToggle">
+            <span class="text-base">⚡</span>
+            Get maid in 15 minutes
+          </router-link>
+        </li>
+        <li class="hover:text-b500 duration-500">
+          <router-link to="/sign-in" class="rounded-lg px-2 py-3">
+            Sign in
+          </router-link>
+        </li>
+        <li class="hover:text-b500 duration-500">
+          <router-link to="/sign-up" class="rounded-lg px-2 py-3">
+            Sign up
+          </router-link>
+        </li>
+
+      </ul>
     </div>
   </nav>
 </template>
