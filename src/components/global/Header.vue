@@ -84,7 +84,7 @@
 
             <!-- Other Links Section -->
             <div class="flex items-center justify-between gap-3 font-semibold">
-              <router-link to="/post-task"
+              <router-link to="/book-now"
                 class="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] max-xxl:size-11 max-xxl:!leading-none xxl:px-8 xxl:py-3">
                 <span class="relative z-10 max-xxl:hidden">Post a Task</span>
                 <PhPlus weight="bold" class="relative z-10 text-xl xxl:hidden" />
@@ -122,11 +122,11 @@ const logoUrl = computed(() => {
   return logo ? `${baseUrl}/images/siteSetting/${logo}` : "";
 });
 
-onMounted(async () => {
-  if (!siteSettingStore.loaded) {
-    await siteSettingStore.loadSiteSetting();
-  }
-});
+// onMounted(async () => {
+//   if (!siteSettingStore.loaded) {
+//     await siteSettingStore.loadSiteSetting();
+//   }
+// });
 
 interface MenuItem {
   id: string;

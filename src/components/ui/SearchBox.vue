@@ -199,9 +199,9 @@ const filterStore = useFilterStore();
 function handleSearch() {
   // alert(55)
   // Only update store and trigger search on Search button click!
-  if (!selectedLocation.value) return alert("Please select a location (required)");
+  // if (!selectedLocation.value) return alert("Please select a location (required)");
   if (!selectedService.value) return alert("Please select a service (required)");
-  if (!selectedPincode.value) return alert("Please select a pincode (required)");
+  // if (!selectedPincode.value) return alert("Please select a pincode (required)");
   filterStore.setFilters({
     location: selectedLocation.value,
     serviceId: selectedService.value,

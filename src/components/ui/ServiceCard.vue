@@ -17,7 +17,7 @@
             <img :src="settingsIcon" alt="" />
             <span>Handyman</span>
           </p>
-          <p
+          <!-- <p
             class="flex items-center justify-center gap-2 rounded-xl bg-b50 px-3 py-2 font-medium"
           >
             <img :src="tapIcon" alt="" />
@@ -33,7 +33,7 @@
             class="flex items-center justify-center gap-2 rounded-xl bg-b50 px-3 py-2 font-medium"
           >
             <span>+4</span>
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
         to="/services/service-details"
         class="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 px-3 py-2 text-sm font-medium text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] lg:px-4 lg:py-3"
       >
-        <span class="relative z-10">View Details</span>
+        <span class="relative z-10">Book Now</span>
       </router-link>
     </div>
   </div>

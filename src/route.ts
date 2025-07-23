@@ -154,9 +154,9 @@ export const router = createRouter({
       meta: { title: "Become Tasker - Helper Hub Vue App" },
     },
     {
-      path: "/post-task",
+      path: "/book-now",
       component: PostSteps,
-      meta: { layout: EmptyLayout, title: "Post A Task - Helper Hub Vue App" },
+      meta: { layout: EmptyLayout, title: "Post A Task - Helper Hub Vue App", requiresAuth: true },
     },
     {
       path: "/sign-in",
