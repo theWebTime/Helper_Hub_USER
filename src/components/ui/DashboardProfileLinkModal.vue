@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import userImg from "/images/review_people_1.png";
+import userImg from "/images/profile.png";
 import { dashboardProfileLink } from "../../data/data";
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";

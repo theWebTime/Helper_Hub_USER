@@ -3,7 +3,7 @@ import api from './axios'
 // GET /user-address/index
 export function getAddresses(params?: { page?: number; itemsPerPage?: number; search?: string }) {
     return api.get("user-address/index", {
-        meta: { toast: true, loader: true },
+        meta: { toast: false, loader: true },
     });
 }
 
@@ -56,6 +56,6 @@ export function deleteAddress(id: number) {
 // GET /user-address/pincode-list
 export function getPincodeList() {
     return api.get("user-address/pincode-list", {
-        meta: { toast: true, loader: true },
+        meta: { toast: false, loader: true },
     });
 }

@@ -53,7 +53,7 @@
             required />
         </div>
         <div class="mb-3 flex items-center gap-2">
-          <input v-model="form.is_default" type="checkbox" id="is_default" required />
+          <input v-model="form.is_default" type="checkbox" id="is_default" />
           <label for="is_default" class="font-medium text-n100">Set as default</label>
         </div>
         <div class="flex gap-2 mt-4">

@@ -52,24 +52,24 @@
           <form @submit.prevent="handleSubmit" class="grid grid-cols-12 gap-4 font-medium sm:gap-6">
             <div class="col-span-12 rounded-xl border border-n30 p-3 lg:col-span-6">
               <input v-model="form.name" type="text" class="outline-none placeholder:text-n100 w-full"
-                placeholder="Name" name="user_name" />
+                placeholder="Name" name="user_name" required />
               <span v-if="validationErrors.name" class="text-xs text-red-500">{{ validationErrors.name[0] }}</span>
             </div>
             <div class="col-span-12 rounded-xl border border-n30 p-3 lg:col-span-6">
               <input v-model="form.phone" type="number" class="outline-none placeholder:text-n100 w-full"
-                placeholder="Phone Number" name="phone" />
+                placeholder="Phone Number" name="phone" required />
               <span v-if="validationErrors.phone" class="text-xs text-red-500">{{ validationErrors.phone[0] }}</span>
             </div>
             <div class="col-span-12 rounded-xl border border-n30 p-3 lg:col-span-6">
               <input v-model="form.email" type="email" class="outline-none placeholder:text-n100 w-full"
-                placeholder="Email" name="email" />
+                placeholder="Email" name="email" required />
               <span v-if="validationErrors.email" class="text-xs text-red-500">{{ validationErrors.email[0] }}</span>
             </div>
             <div class="col-span-12 rounded-xl border border-n30 p-3 lg:col-span-6">
               <textarea v-model="form.message" class="min-h-[100px] w-full outline-none placeholder:text-n100"
-                placeholder="Message" name="message"></textarea>
+                placeholder="Message" name="message" required></textarea>
               <span v-if="validationErrors.message" class="text-xs text-red-500">{{ validationErrors.message[0]
-                }}</span>
+              }}</span>
             </div>
             <div class="col-span-4">
               <button type="submit"
