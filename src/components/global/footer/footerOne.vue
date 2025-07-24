@@ -3,7 +3,7 @@
     <section class="stp-15 overflow-hidden">
       <div class="4xl:large-container max-4xl:mx-4">
         <!-- Top Section -->
-        <div class="sbp-15 flex items-center justify-between border-b border-n500 max-xl:flex-col max-xl:gap-6">
+        <!-- <div class="sbp-15 flex items-center justify-between border-b border-n500 max-xl:flex-col max-xl:gap-6">
           <div class="flex w-full items-center justify-start gap-4 max-xl:justify-center">
             <img :src="bigArrow" alt="" class="max-xxl:w-[80px] max-md:w-[60px]" />
             <p class="text-xl font-medium sm:text-3xl md:text-5xl 3xl:text-[72px]">
@@ -29,7 +29,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="container">
           <div
@@ -107,43 +107,41 @@
 
         <!-- Middle Section: Stats + Newsletter -->
         <div class="border-y border-n500">
-          <div class="flex items-center justify-between lg:container max-xl:py-8 max-lg:flex-col max-lg:gap-6">
-            <!-- Left Stat -->
-            <div>
-              <div class="display-3 xl:display-2 text-center flex justify-center items-center">
-                <count-up :end-val="1" :options="{ enableScrollSpy: true }" />000
-              </div>
-              <p class="max-w-[250px] text-center text-base font-medium xl:text-lg">
-                Customers are satisfied with our work
-              </p>
+          <!-- <div class="flex items-center justify-between lg:container max-xl:py-8 max-lg:flex-col max-lg:gap-6">
+            
+          <div>
+            <div class="display-3 xl:display-2 text-center flex justify-center items-center">
+              <count-up :end-val="1" :options="{ enableScrollSpy: true }" />000
             </div>
+            <p class="max-w-[250px] text-center text-base font-medium xl:text-lg">
+              Customers are satisfied with our work
+            </p>
+          </div>
 
-            <!-- Center Stat -->
-            <div class="border-n500 px-6 py-12 max-lg:w-full max-lg:border-y lg:border-x xl:p-20 xxl:p-30">
-              <div class="display-3 xl:display-2 text-center flex justify-center items-center">
-                <count-up :end-val="1" :options="{ enableScrollSpy: true }" />+
-              </div>
-              <p class="mx-auto max-w-[250px] text-center text-base font-medium xl:text-lg">
-                Years of Reliable Service Delivery
-              </p>
+          <div class="border-n500 px-6 py-12 max-lg:w-full max-lg:border-y lg:border-x xl:p-20 xxl:p-30">
+            <div class="display-3 xl:display-2 text-center flex justify-center items-center">
+              <count-up :end-val="1" :options="{ enableScrollSpy: true }" />+
             </div>
+            <p class="mx-auto max-w-[250px] text-center text-base font-medium xl:text-lg">
+              Years of Reliable Service Delivery
+            </p>
+          </div>
 
-            <!-- Right Newsletter -->
-            <div class="flex flex-col items-start justify-start gap-5 sm:pl-4">
-              <p class="text-lg font-medium">Subscribe to our newsletter</p>
-              <div class="rounded-full border-2 border-white flex items-center overflow-hidden">
-                <input type="email"
-                  class="bg-transparent px-2 outline-none placeholder:text-white max-[400px]:w-[200px] min-[400px]:px-4 lg:px-8"
-                  v-model="form.email" placeholder="Email" :disabled="loading" />
-                <span v-if="validationErrors.email" class="text-xs text-red-500">{{ validationErrors.email[0] }}</span>
-                <button
-                  class="rounded-full border-2 border-white bg-y300 px-2 py-3 font-medium text-n900 sm:px-4 sm:py-4 xl:px-8"
-                  @click="handleSubmit" :disabled="loading">
-                  Subscribe
-                </button>
-              </div>
+          <div class="flex flex-col items-start justify-start gap-5 sm:pl-4">
+            <p class="text-lg font-medium">Subscribe to our newsletter</p>
+            <div class="rounded-full border-2 border-white flex items-center overflow-hidden">
+              <input type="email"
+                class="bg-transparent px-2 outline-none placeholder:text-white max-[400px]:w-[200px] min-[400px]:px-4 lg:px-8"
+                v-model="form.email" placeholder="Email" :disabled="loading" />
+              <span v-if="validationErrors.email" class="text-xs text-red-500">{{ validationErrors.email[0] }}</span>
+              <button
+                class="rounded-full border-2 border-white bg-y300 px-2 py-3 font-medium text-n900 sm:px-4 sm:py-4 xl:px-8"
+                @click="handleSubmit" :disabled="loading">
+                Subscribe
+              </button>
             </div>
           </div>
+        </div> -->
         </div>
 
         <!-- Bottom Navigation + Copyright -->

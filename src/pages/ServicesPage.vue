@@ -8,7 +8,8 @@ import BreadCrumb from "../components/ui/BreadCrumb.vue";
 import Pagination from "../components/ui/Pagination.vue";
 import ServiceCard from "../components/ui/ServiceCard.vue";
 import axios from "axios"; // Use axios or fetch as you prefer
-
+import ServiceBreadCrumb from "../components/ServiceBreadCrumb.vue";
+import FooterOne from "../components/global/footer/footerOne.vue";
 import { useSubserviceStore } from '../stores/subservice';
 
 const router = useRouter();
@@ -140,7 +141,7 @@ function getStartingPrice(item: any) {
 </script>
 
 <template>
-  <BreadCrumb pageName="All Services" :isSearchBoxShow="false" />
+  <ServiceBreadCrumb />
 
   <section class="sbp-30 stp-30">
     <div class="container grid grid-cols-12 gap-6">
@@ -151,26 +152,18 @@ function getStartingPrice(item: any) {
             <!-- Location (Static: Ahmedabad) -->
             <div class="rounded-xl bg-n10 p-6">
               <p class="pb-3 text-lg font-semibold">Location</p>
-              <select
-                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none bg-n10 text-n900"
-                disabled
-              >
+              <select class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none bg-n10 text-n900"
+                disabled>
                 <option value="Ahmedabad" selected>Ahmedabad</option>
               </select>
             </div>
             <!-- Service Dropdown -->
             <div class="rounded-xl bg-n10 p-6">
               <p class="pb-3 text-lg font-semibold">Service</p>
-              <select
-                v-model="selectedService"
-                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none"
-              >
+              <select v-model="selectedService"
+                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none">
                 <option disabled value="">Select Service</option>
-                <option
-                  v-for="service in services"
-                  :key="service.id"
-                  :value="service.id"
-                >
+                <option v-for="service in services" :key="service.id" :value="service.id">
                   {{ service.name }}
                 </option>
               </select>
@@ -178,59 +171,40 @@ function getStartingPrice(item: any) {
             <!-- Pincode Dropdown -->
             <div class="rounded-xl bg-n10 p-6">
               <p class="pb-3 text-lg font-semibold">Pincode</p>
-              <select
-                v-model="selectedPincode"
-                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none"
-              >
+              <select v-model="selectedPincode"
+                class="w-full rounded-xl border border-n40 bg-transparent px-4 py-3 outline-none">
                 <option disabled value="">Select Pincode</option>
                 <option v-for="pin in pincodes" :key="pin.id" :value="pin.id">
                   {{ pin.pin_code }}
                 </option>
               </select>
             </div>
-            <button
-              @click="handleSearch"
-              class="relative flex items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-2 font-medium text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] lg:px-8 lg:py-3"
-            >
+            <button @click="handleSearch"
+              class="relative flex items-center justify-center overflow-hidden rounded-xl bg-b300 px-4 py-2 font-medium text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-xl after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] lg:px-8 lg:py-3">
               <span class="relative z-10">Search</span>
             </button>
-            <button
-              @click="handleClear"
-              type="button"
-              class="flex-1 flex items-center justify-center overflow-hidden rounded-xl border border-n40 bg-white px-4 py-2 font-medium text-n900 hover:bg-n30 duration-200"
-            >
+            <button @click="handleClear" type="button"
+              class="flex-1 flex items-center justify-center overflow-hidden rounded-xl border border-n40 bg-white px-4 py-2 font-medium text-n900 hover:bg-n30 duration-200">
               Clear
             </button>
           </div>
         </div>
       </div>
 
-      <div
-        class="col-span-12 rounded-xl border border-n30 p-4 sm:p-8 lg:col-span-8"
-      >
+      <div class="col-span-12 rounded-xl border border-n30 p-4 sm:p-8 lg:col-span-8">
         <div class="flex flex-col gap-4">
           <div v-if="loadingSubServices" class="text-center py-8">
             Loading...
           </div>
-          <div
-            v-else-if="subServices.length === 0"
-            class="text-center py-8 text-n400"
-          >
+          <div v-else-if="subServices.length === 0" class="text-center py-8 text-n400">
             No subservices found.
           </div>
-          <div
-            v-for="(item, idx) in subServices"
-            :key="item.id"
-            class="rounded-2xl border border-n30 p-4 lg:p-6 mb-6"
-          >
+          <div v-for="(item, idx) in subServices" :key="item.id" class="rounded-2xl border border-n30 p-4 lg:p-6 mb-6">
             <div class="flex flex-col lg:flex-row items-center gap-6">
               <!-- Image -->
               <div class="w-full lg:w-1/3">
-                <img
-                  :src="getImageUrl(item.image) || '/images/default.png'"
-                  alt="Subservice Image"
-                  class="w-full h-[200px] object-cover rounded-xl"
-                />
+                <img :src="getImageUrl(item.image) || '/images/default.png'" alt="Subservice Image"
+                  class="w-full h-[200px] object-cover rounded-xl" />
               </div>
 
               <!-- Details -->
@@ -238,9 +212,7 @@ function getStartingPrice(item: any) {
                 <h5 class="heading-5 mb-2">{{ item.name }}</h5>
                 <p class="text-sm text-n500 mb-4">{{ item.description }}</p>
 
-                <div
-                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
-                >
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <p class="text-xs font-medium text-n400">STARTING AT</p>
                     <p class="text-lg font-bold text-r300">
@@ -261,10 +233,8 @@ function getStartingPrice(item: any) {
                     Book Now
                   </router-link> -->
 
-                  <button
-                    @click="handleBookNow(item)"
-                    class="inline-block rounded-full bg-b300 px-6 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-yellow-400 hover:text-n900"
-                  >
+                  <button @click="handleBookNow(item)"
+                    class="inline-block rounded-full bg-b300 px-6 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-yellow-400 hover:text-n900">
                     Book Now
                   </button>
                 </div>
@@ -277,5 +247,7 @@ function getStartingPrice(item: any) {
         </div> -->
       </div>
     </div>
+
   </section>
+  <FooterOne />
 </template>

@@ -1,30 +1,20 @@
 <template>
-  <div
-    class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6 space-y-6 border"
-  >
+  <div class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6 space-y-6 border">
     <h2 class="text-2xl font-bold text-n800">Booking Summary</h2>
 
     <!-- Selected Details -->
     <div class="space-y-3">
-      <div
-        v-for="type in subservice.types"
-        :key="type.slug"
-        class="flex justify-between text-sm text-n700 border-b pb-2"
-      >
+      <div v-for="type in subservice.types" :key="type.slug"
+        class="flex justify-between text-sm text-n700 border-b pb-2">
         <span class="font-medium">{{ type.name }}</span>
-        <span
-          >{{ getDetailLabel(type.slug) }} – ₹{{
-            getDetailPrice(type.slug)
-          }}</span
-        >
+        <span>{{ getDetailLabel(type.slug) }} – ₹{{
+          getDetailPrice(type.slug)
+        }}</span>
       </div>
     </div>
 
     <!-- Platform Fee -->
-    <div
-      v-if="platformFee > 0"
-      class="flex justify-between text-sm text-n700 border-b pb-2"
-    >
+    <div v-if="platformFee > 0" class="flex justify-between text-sm text-n700 border-b pb-2">
       <span>Platform Fee</span>
       <span>₹{{ platformFee.toFixed(2) }}</span>
     </div>
@@ -41,11 +31,8 @@
 
     <!-- Action Buttons -->
     <div class="pt-4">
-      <button
-        @click="startPayment"
-        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold"
-        :disabled="loading"
-      >
+      <button @click="startPayment"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold" :disabled="loading">
         {{ loading ? "Processing..." : "Pay" }}
       </button>
     </div>
@@ -119,19 +106,19 @@ async function startPayment() {
 
   try {
     const payload = {
-  service_id: props.subservice.service_id,
-  subservice_id: props.subservice.id,
-  subservice_type_detail_ids: Object.entries(props.formData.step2)
-    .filter(([key, value]) => typeof value === "number")
-    .map(([_, value]) => value),
-  schedule_date:
-    props.formData.step1.date_from || props.formData.step1.date,
-  schedule_time: props.formData.step1.time,
-  user_address_id: props.formData.step3,
-  is_dog: props.formData.step2?.is_dog ?? false,
-  special_instructions: props.formData.step2?.special_instruction ?? "",
-  notes: [],
-};
+      service_id: props.subservice.service_id,
+      subservice_id: props.subservice.id,
+      subservice_type_detail_ids: Object.entries(props.formData.step2)
+        .filter(([key, value]) => typeof value === "number")
+        .map(([_, value]) => value),
+      schedule_date:
+        props.formData.step1.date_from || props.formData.step1.date,
+      schedule_time: props.formData.step1.time,
+      user_address_id: props.formData.step3,
+      is_dog: props.formData.step2?.is_dog ?? false,
+      special_instructions: props.formData.step2?.special_instruction ?? "",
+      notes: [],
+    };
 
 
     const res = await createRazorpayOrder(payload);
@@ -145,7 +132,7 @@ async function startPayment() {
       currency: orderData.order.currency,
       name: "Helper Hub",
       description: "Payment for services",
-      image: "/images/logo.png",
+      image: "/images/hh_round_header.png",
       order_id: orderData.order.id,
       handler: async function (response: any) {
         try {

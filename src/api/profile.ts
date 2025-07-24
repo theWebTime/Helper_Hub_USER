@@ -3,7 +3,7 @@ import api from "./axios";
 // GET /profile
 export function getProfile() {
   return api.get("profile", {
-    meta: { toast: true, loader: true },
+    meta: { toast: false, loader: true },
   });
 }
 

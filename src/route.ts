@@ -38,6 +38,7 @@ import EditProfile from "./pages/dashboard/EditProfile.vue";
 import EditServices from "./pages/dashboard/EditServices.vue";
 import Payment from "./pages/Payment.vue";
 import ManageAddress from "./pages/dashboard/ManageAddress.vue";
+import MyBooking from "./pages/dashboard/MyBooking.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -235,6 +236,15 @@ export const router = createRouter({
       meta: {
         // layout: DashboardLayout,
         title: "Profile - Helper Hub",
+        requiresAuth: true,
+      },
+    },
+    {
+      path: "/dashboard/my-booking",
+      component: MyBooking,
+      meta: {
+        // layout: DashboardLayout,
+        title: "My Booking - Helper Hub",
         requiresAuth: true,
       },
     },
