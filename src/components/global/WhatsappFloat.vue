@@ -1,5 +1,5 @@
-<template>
-    <a href="https://wa.me/917862813861" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+<template v-if="watsapp">
+    <a :href="`https://wa.me/91${watsapp || ''}`" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
         <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" width="30" height="30" />
     </a>
 </template>
@@ -7,7 +7,7 @@
 import { useSiteSettingStore } from "../../stores/siteSettingStore";
 
 const siteSettingStore = useSiteSettingStore();
-
+const watsapp = siteSettingStore.data?.whatsapp_number || ''
 </script>
 <style scoped>
 .whatsapp-float {
