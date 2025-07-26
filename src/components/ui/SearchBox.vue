@@ -1,11 +1,23 @@
 <template>
-  <div class="relative z-20 w-full rounded-3xl border border-n20 bg-white p-4 sm:p-8">
-    <form @submit.prevent="handleSearch"
-      class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-lg font-medium max-sm:text-sm">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 w-full">
+  <div
+    class="relative z-20 w-full rounded-3xl border border-n20 bg-white p-4 sm:p-8"
+  >
+    <form
+      @submit.prevent="handleSearch"
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-lg font-medium max-sm:text-sm"
+    >
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 w-full"
+      >
         <!-- Location Dropdown -->
-        <div ref="locationModalRef" class="relative flex items-center gap-2 w-full sm:w-auto">
-          <span class="locationText cursor-pointer flex items-center" @click="toggleLocationDropdown">
+        <div
+          ref="locationModalRef"
+          class="relative flex items-center gap-2 w-full sm:w-auto"
+        >
+          <span
+            class="locationText cursor-pointer flex items-center"
+            @click="toggleLocationDropdown"
+          >
             <PhMapPin class="mr-1" />
             <span>
               <span v-if="selectedLocation === null">
@@ -20,17 +32,29 @@
             :class="{
               'visible scale-100 opacity-100': locationDropdownOpen,
               'invisible scale-0 opacity-0': !locationDropdownOpen,
-            }">
-            <button v-for="(item, idx) in city_names" @click="handleLocationItemClick(item)" :key="idx" type="button"
-              class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap">
+            }"
+          >
+            <button
+              v-for="(item, idx) in city_names"
+              @click="handleLocationItemClick(item)"
+              :key="idx"
+              type="button"
+              class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap"
+            >
               {{ item }}
             </button>
           </div>
         </div>
 
         <!-- Service Dropdown -->
-        <div ref="serviceModalRef" class="relative flex items-center gap-2 w-full sm:w-auto">
-          <span class="serviceText cursor-pointer flex items-center" @click="toggleServiceDropdown">
+        <div
+          ref="serviceModalRef"
+          class="relative flex items-center gap-2 w-full sm:w-auto"
+        >
+          <span
+            class="serviceText cursor-pointer flex items-center"
+            @click="toggleServiceDropdown"
+          >
             <span>
               <span v-if="selectedService === null">
                 <span class="max-[400px]:hidden">Select</span> Service
@@ -44,13 +68,22 @@
             :class="{
               'visible scale-100 opacity-100': serviceDropdownOpen,
               'invisible scale-0 opacity-0': !serviceDropdownOpen,
-            }">
-            <div v-if="loadingServices" class="text-center py-2">Loading...</div>
-            <div v-else-if="services.length === 0" class="text-center py-2">No services found.</div>
+            }"
+          >
+            <div v-if="loadingServices" class="text-center py-2">
+              Loading...
+            </div>
+            <div v-else-if="services.length === 0" class="text-center py-2">
+              No services found.
+            </div>
             <div v-else>
-              <button v-for="item in services" :key="item.id" type="button"
+              <button
+                v-for="item in services"
+                :key="item.id"
+                type="button"
                 class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap"
-                @click="handleServiceItemClick(item.id)">
+                @click="handleServiceItemClick(item.id)"
+              >
                 {{ item.name }}
               </button>
             </div>
@@ -58,8 +91,14 @@
         </div>
 
         <!-- Pincode Dropdown -->
-        <div ref="pincodeModalRef" class="relative flex items-center gap-2 w-full sm:w-auto">
-          <span class="pincodeText cursor-pointer flex items-center" @click="togglePincodeDropdown">
+        <div
+          ref="pincodeModalRef"
+          class="relative flex items-center gap-2 w-full sm:w-auto"
+        >
+          <span
+            class="pincodeText cursor-pointer flex items-center"
+            @click="togglePincodeDropdown"
+          >
             <span>
               <span v-if="selectedPincode === null">
                 <span class="max-[400px]:hidden">Select</span> Pincode
@@ -73,21 +112,32 @@
             :class="{
               'visible scale-100 opacity-100': pincodeDropdownOpen,
               'invisible scale-0 opacity-0': !pincodeDropdownOpen,
-            }">
-            <div v-if="loadingPincodes" class="text-center py-2">Loading...</div>
-            <div v-else-if="pincodes.length === 0" class="text-center py-2">No pincodes found.</div>
+            }"
+          >
+            <div v-if="loadingPincodes" class="text-center py-2">
+              Loading...
+            </div>
+            <div v-else-if="pincodes.length === 0" class="text-center py-2">
+              No pincodes found.
+            </div>
             <div v-else>
-              <button v-for="pin in pincodes" :key="pin.id" type="button"
+              <button
+                v-for="pin in pincodes"
+                :key="pin.id"
+                type="button"
                 class="text-left w-full font-normal text-n900 px-4 py-2 hover:bg-n30 whitespace-nowrap"
-                @click="handlePincodeItemClick(pin.id)">
+                @click="handlePincodeItemClick(pin.id)"
+              >
                 {{ pin.pin_code }}
               </button>
             </div>
           </div>
         </div>
       </div>
-      <button type="submit"
-        class="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] px-8 py-3 w-full sm:w-auto">
+      <button
+        type="submit"
+        class="relative flex items-center justify-center overflow-hidden rounded-full bg-b300 text-white duration-700 after:absolute after:inset-0 after:left-0 after:w-0 after:rounded-full after:bg-yellow-400 after:duration-700 hover:text-n900 hover:after:w-[calc(100%+2px)] px-8 py-3 w-full sm:w-auto"
+      >
         <span class="text-base !leading-none sm:text-xl md:hidden">
           <PhMagnifyingGlass />
         </span>
@@ -107,16 +157,16 @@ import { useFilterStore } from "../../stores/filterStore";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 const toast = useToast();
-const props = defineProps<{
-  redirectOnSearch?: boolean;
-}>();
+const props = defineProps<{}>();
 const router = useRouter();
 
 const city_names = ["Ahmedabad"];
 const selectedLocation = ref<null | string>("Ahmedabad");
 const locationDropdownOpen = ref(false);
 const locationModalRef = ref(null);
-function toggleLocationDropdown() { locationDropdownOpen.value = !locationDropdownOpen.value; }
+function toggleLocationDropdown() {
+  locationDropdownOpen.value = !locationDropdownOpen.value;
+}
 function handleLocationItemClick(city: string) {
   selectedLocation.value = city; // Only update ref, do NOT update store here
   locationDropdownOpen.value = false;
@@ -128,13 +178,15 @@ const loadingServices = ref(false);
 const selectedService = ref<null | number>(null);
 const serviceDropdownOpen = ref(false);
 const serviceModalRef = ref(null);
-function toggleServiceDropdown() { serviceDropdownOpen.value = !serviceDropdownOpen.value; }
+function toggleServiceDropdown() {
+  serviceDropdownOpen.value = !serviceDropdownOpen.value;
+}
 function handleServiceItemClick(serviceId: number) {
   selectedService.value = serviceId; // Only update ref, do NOT update store here
   serviceDropdownOpen.value = false;
 }
 const selectedServiceName = computed(() => {
-  const found = services.value.find(s => s.id === selectedService.value);
+  const found = services.value.find((s) => s.id === selectedService.value);
   return found ? found.name : null;
 });
 
@@ -144,13 +196,15 @@ const loadingPincodes = ref(false);
 const selectedPincode = ref<null | number>(null);
 const pincodeDropdownOpen = ref(false);
 const pincodeModalRef = ref(null);
-function togglePincodeDropdown() { pincodeDropdownOpen.value = !pincodeDropdownOpen.value; }
+function togglePincodeDropdown() {
+  pincodeDropdownOpen.value = !pincodeDropdownOpen.value;
+}
 function handlePincodeItemClick(pinId: number) {
   selectedPincode.value = pinId; // Only update ref, do NOT update store here
   pincodeDropdownOpen.value = false;
 }
 const selectedPincodeName = computed(() => {
-  const found = pincodes.value.find(p => p.id === selectedPincode.value);
+  const found = pincodes.value.find((p) => p.id === selectedPincode.value);
   return found ? found.pin_code : null;
 });
 
@@ -183,16 +237,14 @@ const filterStore = useFilterStore();
 
 function handleSearch() {
   // Only update store and trigger search on Search button click!
-  if (!selectedService.value) return toast.error("Please select a service (required)");
+  if (!selectedService.value)
+    return toast.error("Please select a service (required)");
   filterStore.setFilters({
     location: selectedLocation.value,
     serviceId: selectedService.value,
     pincodeId: selectedPincode.value,
   });
-  if (props.redirectOnSearch) {
-    // router.push("/services"); // change as needed
-    router.push({ path: "/services", query: { autoSearch: 1 } });
-  }
+  router.push({ path: "/services", query: { autoSearch: 1 } });
 }
 </script>
 

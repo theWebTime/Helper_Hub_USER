@@ -36,7 +36,6 @@ import ProfilePage from "./pages/dashboard/ProfilePage.vue";
 import SettingsPage from "./pages/dashboard/SettingsPage.vue";
 import EditProfile from "./pages/dashboard/EditProfile.vue";
 import EditServices from "./pages/dashboard/EditServices.vue";
-import Payment from "./pages/Payment.vue";
 import ManageAddress from "./pages/dashboard/ManageAddress.vue";
 import MyBooking from "./pages/dashboard/MyBooking.vue";
 
@@ -48,12 +47,7 @@ export const router = createRouter({
       component: HomePageFour,
       meta: { title: "Home - Helper Hub" },
     },
-    // creating custom routes
-    // {
-    //   path: "/payment",
-    //   component: Payment,
-    //   meta: { title: "Home - Helper Hub", requiresAuth: true },
-    // },
+    // creating custom routes=
     /* {
       path: "/home-two",
       component: HomePageTwo,

@@ -146,7 +146,7 @@ async function startPayment() {
     if (!orderData?.order) throw new Error("Order not created");
 
     const options = {
-      key: orderData.razorpay_key_id || import.meta.env.VITE_RAZORPAY_KEY_ID,
+      key: orderData.razorpay_key_id || siteSettingStore.data?.razorpay_key_id,
       amount: orderData.order.amount,
       currency: orderData.order.currency,
       name: "Helper Hub",

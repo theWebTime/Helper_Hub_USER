@@ -49,11 +49,11 @@
           </select>
 
           <!-- AM/PM Picker -->
-          <select v-model="amPm" @change="updateTime"
+          <!-- <select v-model="amPm" @change="updateTime"
             class="w-24 rounded-full border border-n900 px-4 py-3 outline-none">
             <option value="AM">AM</option>
             <option value="PM">PM</option>
-          </select>
+          </select> -->
         </div>
       </div>
     </div>
@@ -86,45 +86,51 @@ function addDays(dateStr: string, days: number) {
   return date.toISOString().split('T')[0]
 }
 
-// Time data
-const timeOptions = Array.from({ length: 12 * 4 }, (_, i) => {
-  const hour = (Math.floor(i / 4) + 1).toString().padStart(2, '0')
-  const minute = ((i % 4) * 15).toString().padStart(2, '0')
-  return `${hour}:${minute}`
-})
+// Generate allowed time options between 8:00 AM and 10:00 PM in 15 min intervals
+const timeOptions = (() => {
+  const options = []
+  for (let h = 8; h <= 22; h++) {
+    for (let m = 0; m < 60; m += 15) {
+      const hr12 = h % 12 === 0 ? 12 : h % 12
+      const ampm = h < 12 ? 'AM' : 'PM'
+      options.push(`${hr12.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')} ${ampm}`)
+    }
+  }
+  return options
+})()
 
-const selectedTime = ref('12:00')
+const selectedTime = ref('08:00 AM')
 const amPm = ref('AM')
 
+// Internal state
 const localData = reactive({
   date: props.modelValue.date || today,
   date_from: props.modelValue.date_from || today,
   date_to: props.modelValue.date_to || addDays(today, 30),
-  time: props.modelValue.time || '12:00', // default 24-hour format
+  time: props.modelValue.time || '08:00', // 24-hour format
 })
 
 onMounted(() => {
-  const timeParts = props.modelValue.time?.split(':')
-  if (timeParts) {
-    let hr = parseInt(timeParts[0])
-    const min = timeParts[1] || '00'
-    amPm.value = hr >= 12 ? 'PM' : 'AM'
-    if (hr === 0) hr = 12
-    else if (hr > 12) hr = hr - 12
-    selectedTime.value = `${hr.toString().padStart(2, '0')}:${min}`
-  }
+  const time = props.modelValue.time || '08:00'
+  const [hrStr, min] = time.split(':')
+  let hr = parseInt(hrStr)
+  amPm.value = hr >= 12 ? 'PM' : 'AM'
+  if (hr === 0) hr = 12
+  else if (hr > 12) hr = hr - 12
+  selectedTime.value = `${hr.toString().padStart(2, '0')}:${min} ${amPm.value}`
 })
 
-// Convert selected time to 24-hour format and update localData.time
+// Update 24-hour time in localData
 function updateTime() {
-  const [hourStr, minute] = selectedTime.value.split(':')
-  let hour = parseInt(hourStr)
-  if (amPm.value === 'PM' && hour !== 12) hour += 12
-  if (amPm.value === 'AM' && hour === 12) hour = 0
-  localData.time = `${hour.toString().padStart(2, '0')}:${minute}`
+  const [timeStr, suffix] = selectedTime.value.split(' ')
+  const [hrStr, min] = timeStr.split(':')
+  let hour = parseInt(hrStr)
+  if (suffix === 'PM' && hour !== 12) hour += 12
+  if (suffix === 'AM' && hour === 12) hour = 0
+  localData.time = `${hour.toString().padStart(2, '0')}:${min}`
 }
 
-// Watch for changes
+// Watch date_from to update date_to
 watch(
   () => localData.date_from,
   (newDateFrom) => {
@@ -134,6 +140,7 @@ watch(
   }
 )
 
+// Emit full localData to parent
 watch(
   () => ({ ...localData }),
   (val) => emit('update:modelValue', val),

@@ -60,49 +60,33 @@
 
           <!-- Auth Section -->
           <div class="flex items-center justify-between gap-6">
-
             <div class="flex items-center justify-between gap-3 font-semibold">
-              <router-link to="/services" class="
-                  w-full
-                  rounded-full
-                  px-2 py-1
-                  font-semibold
-                  text-white
-                  bg-gradient-to-r from-b500 via-pink-500 to-yellow-400
-                  shadow
-                  border border-white
-                  hover:scale-105 hover:shadow-md hover:from-yellow-400 hover:to-b500
-                  transition-all duration-300
-                  flex items-center justify-center gap-1
-                  animate-pulse
-                  text-sm
-                " style="animation-duration:2s;" @click="showToggle">
-                <span class="text-base">⚡</span>
-                Get maid in 15 minutes
-              </router-link>
+              <button
+      class="
+        w-full
+        rounded-full
+        px-2 py-1
+        font-semibold
+        text-white
+        bg-gradient-to-r from-b500 via-pink-500 to-yellow-400
+        shadow
+        border border-white
+        hover:scale-105 hover:shadow-md hover:from-yellow-400 hover:to-b500
+        transition-all duration-300
+        flex items-center justify-center gap-1
+        animate-pulse
+        text-sm
+      "
+      style="animation-duration:2s;"
+      @click="showToggle"
+    >
+      <span class="text-base">⚡</span>
+      Get maid in 15 minutes
+    </button>
+
             </div>
             <template v-if="!isLoggedIn">
               <ul class="flex items-center justify-start gap-2 font-medium max-sm:hidden xxl:gap-6">
-                <!-- <li class="hover:text-b500 duration-500">
-                  <router-link to="/services" class="
-                  w-full
-                  rounded-full
-                  px-2 py-1
-                  font-semibold
-                  text-white
-                  bg-gradient-to-r from-b500 via-pink-500 to-yellow-400
-                  shadow
-                  border border-white
-                  hover:scale-105 hover:shadow-md hover:from-yellow-400 hover:to-b500
-                  transition-all duration-300
-                  flex items-center justify-center gap-1
-                  animate-pulse
-                  text-sm
-                " style="animation-duration:2s;" @click="showToggle">
-                    <span class="text-base">⚡</span>
-                    Get maid in 15 minutes
-                  </router-link>
-                </li> -->
                 <li class="hover:text-b500 duration-500">
                   <router-link to="/sign-up" class="rounded-lg px-2 py-3">
                     Sign up
@@ -144,6 +128,12 @@ import logo from "/images/hh_round_header.png";
 import DashboardProfileLinkModal from "../ui/DashboardProfileLinkModal.vue";
 
 import { useSiteSettingStore } from "../../stores/siteSettingStore";
+
+// import { useRouter } from "vue-router";
+import { useFilterStore } from "../../stores/filterStore"; // adjust path if needed
+
+// const router = useRouter();
+const filterStore = useFilterStore();
 
 const siteSettingStore = useSiteSettingStore();
 const baseUrl = import.meta.env.VITE_APP_BASE_URL;
@@ -222,6 +212,12 @@ onUnmounted(() => {
 
 const showToggle = () => {
   showMobileMenu.value = !showMobileMenu.value;
+  filterStore.setFilters({
+    location: "Ahmedabad",
+    serviceId: 1,
+    pincodeId: "",
+  });
+  router.push({ path: "/services", query: { autoSearch: "1" } });
 };
 
 const isMenuActive = (menu: MenuItem) => {

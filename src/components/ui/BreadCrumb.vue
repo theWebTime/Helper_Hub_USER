@@ -64,7 +64,7 @@
 
   <section v-if="isSearchBoxShow" class="">
     <div class="container -mt-8 md:-mt-16">
-      <SearchBox  :redirectOnSearch="false" />
+      <SearchBox />
     </div>
   </section>
 </template>
