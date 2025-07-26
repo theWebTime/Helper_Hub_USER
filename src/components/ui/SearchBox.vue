@@ -105,6 +105,8 @@ import { useServiceStore } from "../../stores/serviceStore";
 import { usePincodeStore } from "../../stores/pincodeStore";
 import { useFilterStore } from "../../stores/filterStore";
 import { useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
+const toast = useToast();
 const props = defineProps<{
   redirectOnSearch?: boolean;
 }>();
@@ -180,11 +182,8 @@ onClickOutside(locationModalRef, () => (locationDropdownOpen.value = false));
 const filterStore = useFilterStore();
 
 function handleSearch() {
-  // alert(55)
   // Only update store and trigger search on Search button click!
-  // if (!selectedLocation.value) return alert("Please select a location (required)");
-  if (!selectedService.value) return alert("Please select a service (required)");
-  // if (!selectedPincode.value) return alert("Please select a pincode (required)");
+  if (!selectedService.value) return toast.error("Please select a service (required)");;
   filterStore.setFilters({
     location: selectedLocation.value,
     serviceId: selectedService.value,

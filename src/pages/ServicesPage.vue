@@ -12,6 +12,8 @@ import ServiceBreadCrumb from "../components/ServiceBreadCrumb.vue";
 import FooterOne from "../components/global/footer/footerOne.vue";
 import { useSubserviceStore } from '../stores/subservice';
 
+import { useToast } from "vue-toastification";
+const toast = useToast();
 const router = useRouter();
 const subserviceStore = useSubserviceStore();
 
@@ -94,8 +96,7 @@ async function fetchSubServices(serviceId: number) {
 async function handleSearch(e?: Event) {
   if (e) e.preventDefault();
   if (!selectedService.value)
-    return alert("Please select a service (required)");
-  // if (!selectedPincode.value) return alert("Please select a pincode (required)");
+    toast.error("Please select a service (required)");
   filterStore.setFilters({
     location: "Ahmedabad",
     serviceId: Number(selectedService.value),

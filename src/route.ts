@@ -49,11 +49,11 @@ export const router = createRouter({
       meta: { title: "Home - Helper Hub" },
     },
     // creating custom routes
-    {
-      path: "/payment",
-      component: Payment,
-      meta: { title: "Home - Helper Hub", requiresAuth: true },
-    },
+    // {
+    //   path: "/payment",
+    //   component: Payment,
+    //   meta: { title: "Home - Helper Hub", requiresAuth: true },
+    // },
     /* {
       path: "/home-two",
       component: HomePageTwo,
@@ -74,21 +74,22 @@ export const router = createRouter({
       component: ServicesPage,
       meta: { title: "All Services - Helper Hub" },
     },
-    {
-      path: "/services/service-details",
-      component: ServiceDetails,
-      meta: { title: "Service Details - Helper Hub" },
-    },
-    {
-      path: "/browse-tasks",
-      component: BrowseTasks,
-      meta: { title: "Browse Tasks - Helper Hub" },
-    },
-    {
-      path: "/find-workers",
-      component: FindWorkers,
-      meta: { title: "Find Workers - Helper Hub" },
-    },/* 
+    // {
+    //   path: "/services/service-details",
+    //   component: ServiceDetails,
+    //   meta: { title: "Service Details - Helper Hub" },
+    // },
+    // {
+    //   path: "/browse-tasks",
+    //   component: BrowseTasks,
+    //   meta: { title: "Browse Tasks - Helper Hub" },
+    // },
+    // {
+    //   path: "/find-workers",
+    //   component: FindWorkers,
+    //   meta: { title: "Find Workers - Helper Hub" },
+    // },
+    /* 
     {
       path: "/worker-profile",
       component: WorkerProfile,
@@ -149,11 +150,11 @@ export const router = createRouter({
       component: TermsConditions,
       meta: { title: "Terms & Conditions - Helper Hub" },
     },
-    {
-      path: "/become-tasker",
-      component: BecomeTasker,
-      meta: { title: "Become Tasker - Helper Hub" },
-    },
+    // {
+    //   path: "/become-tasker",
+    //   component: BecomeTasker,
+    //   meta: { title: "Become Tasker - Helper Hub" },
+    // },
     {
       path: "/book-now",
       component: PostSteps,
@@ -192,25 +193,25 @@ export const router = createRouter({
     }, */
 
     // Dashboard Pages
-    {
-      path: "/dashboard/home",
-      component: DashboardHome,
-      meta: { layout: DashboardLayout, title: "Dashboard - Helper Hub" },
-    },
-    {
-      path: "/dashboard/services",
-      component: DashboardServicesPage,
-      meta: { layout: DashboardLayout, title: "Services - Helper Hub" },
-    },
+    // {
+    //   path: "/dashboard/home",
+    //   component: DashboardHome,
+    //   meta: { layout: DashboardLayout, title: "Dashboard - Helper Hub" },
+    // },
+    // {
+    //   path: "/dashboard/services",
+    //   component: DashboardServicesPage,
+    //   meta: { layout: DashboardLayout, title: "Services - Helper Hub" },
+    // },
 
-    {
-      path: "/dashboard/payout-history",
-      component: PaymentDetails,
-      meta: {
-        layout: DashboardLayout,
-        title: "Payment Details - Helper Hub",
-      },
-    },
+    // {
+    //   path: "/dashboard/payout-history",
+    //   component: PaymentDetails,
+    //   meta: {
+    //     layout: DashboardLayout,
+    //     title: "Payment Details - Helper Hub",
+    //   },
+    // },
 
     /* {
       path: "/dashboard/wishlist",
@@ -231,7 +232,7 @@ export const router = createRouter({
     }, */
 
     {
-      path: "/dashboard/profile",
+      path: "/profile",
       component: ProfilePage,
       meta: {
         // layout: DashboardLayout,
@@ -240,7 +241,7 @@ export const router = createRouter({
       },
     },
     {
-      path: "/dashboard/my-booking",
+      path: "/my-booking",
       component: MyBooking,
       meta: {
         // layout: DashboardLayout,
@@ -249,7 +250,7 @@ export const router = createRouter({
       },
     },
     {
-      path: "/dashboard/manage-address",
+      path: "/manage-address",
       component: ManageAddress,
       meta: {
         // layout: DashboardLayout,
@@ -257,30 +258,30 @@ export const router = createRouter({
         requiresAuth: true,
       },
     },
-    {
-      path: "/dashboard/edit-profile",
-      component: EditProfile,
-      meta: {
-        layout: DashboardLayout,
-        title: "Edit Profile - Helper Hub",
-      },
-    },
-    {
-      path: "/dashboard/settings",
-      component: SettingsPage,
-      meta: {
-        layout: DashboardLayout,
-        title: "Edit Profile - Helper Hub",
-      },
-    },
-    {
-      path: "/dashboard/edit-service",
-      component: EditServices,
-      meta: {
-        layout: DashboardLayout,
-        title: "Edit Services - Helper Hub",
-      },
-    },
+    // {
+    //   path: "/dashboard/edit-profile",
+    //   component: EditProfile,
+    //   meta: {
+    //     layout: DashboardLayout,
+    //     title: "Edit Profile - Helper Hub",
+    //   },
+    // },
+    // {
+    //   path: "/dashboard/settings",
+    //   component: SettingsPage,
+    //   meta: {
+    //     layout: DashboardLayout,
+    //     title: "Edit Profile - Helper Hub",
+    //   },
+    // },
+    // {
+    //   path: "/dashboard/edit-service",
+    //   component: EditServices,
+    //   meta: {
+    //     layout: DashboardLayout,
+    //     title: "Edit Services - Helper Hub",
+    //   },
+    // },
     {
       path: "/:pathMatch(.*)*",
       component: NotFound,
