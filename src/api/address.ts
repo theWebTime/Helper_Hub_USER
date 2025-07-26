@@ -26,7 +26,7 @@ export function createAddress(payload: {
 // GET /user-address/show/{id}
 export function getAddress(id: number) {
     return api.get(`user-address/show/${id}`, {
-        meta: { toast: true, loader: true },
+        meta: { toast: false, loader: true },
     });
 }
 

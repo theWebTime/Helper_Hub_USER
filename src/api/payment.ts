@@ -2,7 +2,7 @@ import api from "./axios";
 
 export function createRazorpayOrder(payload: any) {
   return api.post("razorpay/create-order", payload, {
-    meta: { toast: true, loader: true },
+    meta: { toast: false, loader: true },
   });
 }
 

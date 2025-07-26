@@ -183,7 +183,7 @@ const filterStore = useFilterStore();
 
 function handleSearch() {
   // Only update store and trigger search on Search button click!
-  if (!selectedService.value) return toast.error("Please select a service (required)");;
+  if (!selectedService.value) return toast.error("Please select a service (required)");
   filterStore.setFilters({
     location: selectedLocation.value,
     serviceId: selectedService.value,

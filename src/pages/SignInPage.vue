@@ -188,7 +188,7 @@ const handleVerifyOtp = async () => {
     if (res.data && res.data.success && res.data.data?.token) {
       stopOtpTimer();
       localStorage.setItem('token', res.data.data.token);
-      router.push('/');
+      router.push('/services');
     } else {
       error.value = res.data?.message || 'Invalid response from server.';
     }

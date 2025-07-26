@@ -1,20 +1,30 @@
 <template>
-  <div class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6 space-y-6 border">
+  <div
+    class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6 space-y-6 border"
+  >
     <h2 class="text-2xl font-bold text-n800">Booking Summary</h2>
 
     <!-- Selected Details -->
     <div class="space-y-3">
-      <div v-for="type in subservice.types" :key="type.slug"
-        class="flex justify-between text-sm text-n700 border-b pb-2">
+      <div
+        v-for="type in subservice.types"
+        :key="type.slug"
+        class="flex justify-between text-sm text-n700 border-b pb-2"
+      >
         <span class="font-medium">{{ type.name }}</span>
-        <span>{{ getDetailLabel(type.slug) }} – ₹{{
-          getDetailPrice(type.slug)
-        }}</span>
+        <span
+          >{{ getDetailLabel(type.slug) }} – ₹{{
+            getDetailPrice(type.slug)
+          }}</span
+        >
       </div>
     </div>
 
     <!-- Platform Fee -->
-    <div v-if="platformFee > 0" class="flex justify-between text-sm text-n700 border-b pb-2">
+    <div
+      v-if="platformFee > 0"
+      class="flex justify-between text-sm text-n700 border-b pb-2"
+    >
       <span>Platform Fee</span>
       <span>₹{{ platformFee.toFixed(2) }}</span>
     </div>
@@ -31,8 +41,11 @@
 
     <!-- Action Buttons -->
     <div class="pt-4">
-      <button @click="startPayment"
-        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold" :disabled="loading">
+      <button
+        @click="startPayment"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold"
+        :disabled="loading"
+      >
         {{ loading ? "Processing..." : "Pay" }}
       </button>
     </div>
@@ -44,6 +57,13 @@ import { computed, ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useSiteSettingStore } from "../../stores/siteSettingStore";
 import { createRazorpayOrder, verifyRazorpayPayment } from "../../api/payment";
+import { useToast } from "vue-toastification";
+import { useRouter } from "vue-router";
+
+
+const toast = useToast();
+const router = useRouter();
+
 
 // Access platform fee via Pinia
 const siteSettingStore = useSiteSettingStore();
@@ -120,7 +140,6 @@ async function startPayment() {
       notes: [],
     };
 
-
     const res = await createRazorpayOrder(payload);
     const orderData = res.data?.data;
 
@@ -144,13 +163,16 @@ async function startPayment() {
           });
 
           if (verifyRes.data?.success) {
-            successMsg.value = "Payment successful and booking confirmed!";
+            toast.success("Payment successful and booking confirmed!");
+            router.push("/my-booking");
+            return;
           } else {
-            error.value = verifyRes.data?.message || "Verification failed!";
+            toast.error(verifyRes.data?.message || "Verification failed!");
           }
         } catch (e: any) {
-          error.value =
-            e.response?.data?.message || "Payment verification error";
+          error.value = toast.error(
+            e.response?.data?.message || "Payment verification error"
+          );
         }
       },
       prefill: {
@@ -163,7 +185,7 @@ async function startPayment() {
       },
       modal: {
         ondismiss: function () {
-          error.value = "Payment popup closed!";
+          toast.error("Payment popup closed!");
         },
       },
     };
@@ -171,7 +193,7 @@ async function startPayment() {
     const razor = new (window as any).Razorpay(options);
     razor.open();
   } catch (err: any) {
-    error.value = err.response?.data?.message || "Failed to initiate payment.";
+    toast.error(err.response?.data?.message || "Failed to initiate payment.");
   } finally {
     loading.value = false;
   }
