@@ -22,7 +22,7 @@
         </div>
         <p class="stp-15 pb-8 text-n300">{{ review }}</p>
         <div class="flex items-center justify-start gap-3">
-          <img :src="img" class="size-12 rounded-full" alt="" />
+          <!-- <img :src="img" class="size-12 rounded-full" alt="" /> -->
           <p class="font-semibold">{{ name }}</p>
           <div class="pl-2">
             <img :src="icon" alt="" />
@@ -54,7 +54,7 @@
         </div>
         <p class="stp-15 pb-8 text-n300">{{ review }}</p>
         <div class="flex items-center justify-start gap-3">
-          <img :src="img" class="size-12 rounded-full" alt="" />
+          <!-- <img :src="img" class="size-12 rounded-full" alt="" /> -->
           <p class="font-semibold">{{ name }}</p>
           <div class="pl-2">
             <img :src="icon" alt="" />

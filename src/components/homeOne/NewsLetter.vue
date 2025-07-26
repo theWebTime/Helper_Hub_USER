@@ -1,16 +1,16 @@
 <template>
-  <section class="stp-30 sbp-30 relative overflow-hidden bg-r300">
+  <section class="stp-30 sbp-30 relative overflow-hidden bg-n900">
     <div
-      class="jumping1 absolute -right-40 top-96 size-[300px] rounded-full bg-b900 sm:top-48 sm:size-[400px] lg:-right-10 lg:top-20 xl:size-[640px]">
+      class="jumping1 absolute -right-40 top-96 size-[300px] rounded-full bg-n900 sm:top-48 sm:size-[400px] lg:-right-10 lg:top-20 xl:size-[640px]">
     </div>
     <div
-      class="jumping2 absolute -left-64 bottom-96 z-10 size-[350px] rounded-full bg-g300 sm:bottom-64 sm:size-[400px] lg:-left-40 lg:bottom-20 xl:size-[640px]">
+      class="jumping2 absolute -left-64 bottom-96 z-10 size-[350px] rounded-full bg-n900 sm:bottom-64 sm:size-[400px] lg:-left-40 lg:bottom-20 xl:size-[640px]">
     </div>
     <div
-      class="slideRight absolute -left-64 top-96 size-[350px] rounded-full bg-b100 sm:top-64 sm:size-[500px] lg:-left-40 lg:top-20 xl:size-[876px]">
+      class="slideRight absolute -left-64 top-96 size-[350px] rounded-full bg-n900 sm:top-64 sm:size-[500px] lg:-left-40 lg:top-20 xl:size-[876px]">
     </div>
     <div
-      class="slideLeft absolute left-1/4 top-[400px] size-[300px] rounded-full bg-y200 max-sm:hidden sm:size-[400px] lg:top-80 xl:top-60 xl:size-[754px]">
+      class="slideLeft absolute left-1/4 top-[400px] size-[300px] rounded-full bg-n900 max-sm:hidden sm:size-[400px] lg:top-80 xl:top-60 xl:size-[754px]">
     </div>
 
     <div class="container relative z-20 grid grid-cols-12 text-white max-lg:gap-6 max-xxl:overflow-hidden">
