@@ -45,7 +45,7 @@
                 <span class="text-2xl !leading-none">
                   <PhPhone />
                 </span>
-                <input v-model="mobile" type="text" placeholder="Enter Your Mobile"
+                <input v-model="mobile" type="text" placeholder="Enter Your Whatsapp Number"
                   class="w-full text-sm text-n300 outline-none" required :disabled="otpStep" />
               </div>
               <div v-if="otpStep"
@@ -165,14 +165,14 @@ const handleSendOtp = async () => {
     // Basic frontend validation for mobile as per backend logic
     const mobilePattern = /^[6-9][0-9]{9}$/;
     if (!mobilePattern.test(mobile.value)) {
-      error.value = "Mobile number must start with 6, 7, 8, or 9 and be 10 digits.";
+      error.value = "Whatsapp number must start with 6, 7, 8, or 9 and be 10 digits.";
       loading.value = false;
       return;
     }
     const res = await sendRegisterOtp(mobile.value);
     if (res.data && res.data.success) {
       otpStep.value = true;
-      successMsg.value = res.data.message || "OTP sent! Please check your mobile.";
+      successMsg.value = res.data.message || "OTP sent! Please check your Whatsapp.";
       startOtpTimer();
     } else {
       error.value = res.data?.message || "Failed to send OTP";

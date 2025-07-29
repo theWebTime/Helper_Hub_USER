@@ -29,7 +29,7 @@
               <span class="text-2xl !leading-none">
                 <PhPhone />
               </span>
-              <input v-model="mobile" type="text" placeholder="Enter Your Mobile"
+              <input v-model="mobile" type="text" placeholder="Enter Your Whatsapp Number"
                 class="w-full text-sm text-n300 outline-none" autocomplete="tel" required :disabled="otpStep" />
             </div>
             <!-- OTP Field: only visible after OTP sent -->
@@ -151,13 +151,13 @@ const handleSendOtp = async () => {
   try {
     const mobilePattern = /^[6-9][0-9]{9}$/;
     if (!mobilePattern.test(mobile.value)) {
-      error.value = "Mobile number must start with 6, 7, 8, or 9 and be 10 digits.";
+      error.value = "Whatsapp number must start with 6, 7, 8, or 9 and be 10 digits.";
       loading.value = false;
       return;
     }
     const res = await sendLoginOtp(mobile.value);
     if (res.data && res.data.success) {
-      successMsg.value = res.data.message || "OTP sent! Please check your mobile.";
+      successMsg.value = res.data.message || "OTP sent! Please check your Whatsapp.";
       otpStep.value = true;
       startOtpTimer();
     } else {
