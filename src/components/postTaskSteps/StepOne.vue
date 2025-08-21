@@ -20,7 +20,7 @@
       <!-- From Date (Monthly) -->
       <div class="col-span-6" v-if="subservice?.service_id === 2">
         <p class="pb-2 font-semibold">From Date</p>
-        <input v-model="localData.date_from" type="date" :min="today"
+        <input v-model="localData.date_from" type="date" :min="nextWeek"
           class="w-full rounded-full border border-n900 px-4 py-3 outline-none" />
       </div>
 
@@ -39,7 +39,7 @@
       </div>
 
       <!-- Time Selection -->
-      <div class="col-span-6">
+      <div class="col-span-6" v-if="subservice?.service_id === 1">
         <p class="pb-2 font-semibold">Select Time</p>
         <div class="flex gap-2">
           <!-- Time Picker -->
@@ -48,12 +48,14 @@
             <option v-for="option in timeOptions" :key="option" :value="option">{{ option }}</option>
           </select>
 
-          <!-- AM/PM Picker -->
-          <!-- <select v-model="amPm" @change="updateTime"
+          <!-- AM/PM Picker (optional) -->
+          <!--
+          <select v-model="amPm" @change="updateTime"
             class="w-24 rounded-full border border-n900 px-4 py-3 outline-none">
             <option value="AM">AM</option>
             <option value="PM">PM</option>
-          </select> -->
+          </select>
+          -->
         </div>
       </div>
     </div>
@@ -80,6 +82,13 @@ const subservice = subserviceStore.selectedSubservice
 
 const today = new Date().toISOString().split('T')[0]
 
+// 📅 Calculate next week's date (today + 7 days)
+const nextWeek = computed(() => {
+  const date = new Date()
+  date.setDate(new Date().getDate() + 7)
+  return date.toISOString().split('T')[0]
+})
+
 function addDays(dateStr: string, days: number) {
   const date = new Date(dateStr)
   date.setDate(date.getDate() + days)
@@ -105,8 +114,8 @@ const amPm = ref('AM')
 // Internal state
 const localData = reactive({
   date: props.modelValue.date || today,
-  date_from: props.modelValue.date_from || today,
-  date_to: props.modelValue.date_to || addDays(today, 30),
+  date_from: props.modelValue.date_from || nextWeek.value,
+  date_to: props.modelValue.date_to || addDays(nextWeek.value, 31),
   time: props.modelValue.time || '08:00', // 24-hour format
 })
 

@@ -1,30 +1,20 @@
 <template>
-  <div
-    class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6 space-y-6 border"
-  >
+  <div class="max-w-xl mx-auto bg-white shadow-md rounded-2xl p-6 space-y-6 border">
     <h2 class="text-2xl font-bold text-n800">Booking Summary</h2>
 
     <!-- Selected Details -->
     <div class="space-y-3">
-      <div
-        v-for="type in subservice.types"
-        :key="type.slug"
-        class="flex justify-between text-sm text-n700 border-b pb-2"
-      >
+      <div v-for="type in subservice.types" :key="type.slug"
+        class="flex justify-between text-sm text-n700 border-b pb-2">
         <span class="font-medium">{{ type.name }}</span>
-        <span
-          >{{ getDetailLabel(type.slug) }} – ₹{{
-            getDetailPrice(type.slug)
-          }}</span
-        >
+        <span>{{ getDetailLabel(type.slug) }} – ₹{{
+          getDetailPrice(type.slug)
+        }}</span>
       </div>
     </div>
 
     <!-- Platform Fee -->
-    <div
-      v-if="platformFee > 0"
-      class="flex justify-between text-sm text-n700 border-b pb-2"
-    >
+    <div v-if="platformFee > 0" class="flex justify-between text-sm text-n700 border-b pb-2">
       <span>Platform Fee</span>
       <span>₹{{ platformFee.toFixed(2) }}</span>
     </div>
@@ -41,11 +31,8 @@
 
     <!-- Action Buttons -->
     <div class="pt-4">
-      <button
-        @click="startPayment"
-        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold"
-        :disabled="loading"
-      >
+      <button @click="startPayment"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold" :disabled="loading">
         {{ loading ? "Processing..." : "Pay" }}
       </button>
     </div>
@@ -136,6 +123,7 @@ async function startPayment() {
       schedule_time: props.formData.step1.time,
       user_address_id: props.formData.step3,
       is_dog: props.formData.step2?.is_dog ?? false,
+      gender: props.formData.step2?.gender ?? false,
       special_instructions: props.formData.step2?.special_instruction ?? "",
       notes: [],
     };

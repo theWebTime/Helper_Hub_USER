@@ -23,6 +23,7 @@
                                 <th class="py-3 px-4">Schedule End Date</th>
                                 <th class="py-3 px-4">Time</th>
                                 <th class="py-3 px-4">Dog</th>
+                                <th class="py-3 px-4">Gender</th>
                                 <th class="py-3 px-4">Instructions</th>
                                 <th class="py-3 px-4">Payment</th>
                                 <th class="py-3 px-4">Method</th>
@@ -47,6 +48,7 @@
                                 <td class="px-4 py-2">{{ item.schedule_end_date }}</td>
                                 <td class="px-4 py-2">{{ item.schedule_time }}</td>
                                 <td class="px-4 py-2">{{ item.is_dog ? "Yes" : "No" }}</td>
+                                <td class="px-4 py-2">{{ item.gender ? "Female" : "Male" }}</td>
                                 <td class="px-4 py-2">{{ item.special_instructions }}</td>
                                 <td class="px-4 py-2">{{ item.payment_status ? "Done" : "Not Yet" }}</td>
                                 <td class="px-4 py-2">{{ item.payment_method }}</td>
@@ -77,6 +79,7 @@
                             item.schedule_end_date }} at {{
                                 item.schedule_time }}</p>
                         <p><strong>Dog:</strong> {{ item.is_dog ? "Yes" : "No" }}</p>
+                        <p><strong>Gender:</strong> {{ item.gender ? "Female" : "Male" }}</p>
                         <p><strong>Instructions:</strong> {{ item.special_instructions }}</p>
                         <p><strong>Payment:</strong> {{ item.payment_status ? "Done" : "Not Yet" }}</p>
                         <p><strong>Status:</strong> {{ item.booking_status ? "Confirmed" : "Not Confirmed" }}</p>
