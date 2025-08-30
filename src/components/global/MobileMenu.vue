@@ -78,7 +78,7 @@
                   text-sm
                 " style="animation-duration:2s;" @click="showToggle">
             <span class="text-base">⚡</span>
-            Get maid in 15 minutes
+            Get maid in 30 minutes
           </router-link>
         </li>
         <li class="hover:text-b500 duration-500">

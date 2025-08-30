@@ -61,8 +61,7 @@
           <!-- Auth Section -->
           <div class="flex items-center justify-between gap-6">
             <div class="flex items-center justify-between gap-3 font-semibold">
-              <button
-      class="
+              <button class="
         w-full
         rounded-full
         px-2 py-1
@@ -76,13 +75,10 @@
         flex items-center justify-center gap-1
         animate-pulse
         text-sm
-      "
-      style="animation-duration:2s;"
-      @click="showToggle"
-    >
-      <span class="text-base">⚡</span>
-      Get maid in 15 minutes
-    </button>
+      " style="animation-duration:2s;" @click="showToggle">
+                <span class="text-base">⚡</span>
+                Get maid in 30 minutes
+              </button>
 
             </div>
             <template v-if="!isLoggedIn">
@@ -109,7 +105,7 @@
               <DashboardProfileLinkModal />
 
             </template>
-            
+
 
           </div>
         </div>

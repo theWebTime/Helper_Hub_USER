@@ -491,49 +491,49 @@ export const testimonialData = [
   {
     id: uuidv4(),
     review:
-      "I booked a maid for daily kitchen and dish cleaning. The service was punctual and hassle-free. She was polite and knew her job well. Helper Hub has been a blessing for my busy lifestyle!",
+      "Their team was professional, punctual, and completed the cleaning services efficiently. The staff was polite and well-trained. Highly recommended for anyone looking for reliable home help services!",
     img: smallPeople1,
-    name: "Ankita Sharma, Ahmedabad",
+    name: "Vishal Patel, Ahmedabad",
     profileId: "@iamsedaoi",
   },
   {
     id: uuidv4(),
     review:
-      "After trying many local agencies, Helper Hub finally sent someone reliable. My elderly parents now have help for cooking and cleaning. We’re so relieved!",
+      "Best service....thank you helper hub .. Highly appreciated your service others best service best cleaning staff....this is my geniune review I m very happy 😁",
     img: smallPeople2,
-    name: "Ravi Mehta, Ahmedabad",
+    name: "Trisha Modi, Ahmedabad",
     profileId: "@roanld23",
   },
   {
     id: uuidv4(),
     review:
-      "The kitchen helper arrived on time and maintained great hygiene. Booking the service was quick, and the customer support was super responsive. Totally recommend it.",
+      "I recently booked a maid service through Helper Hub, and I’m really happy with the experience. The process was quick and smooth, and the service they provided was excellent. The maid was professional, punctual, and did a great job. It’s a trustworthy platform for quick and reliable home help services. Highly recommended! 👍",
     img: smallPeople3,
-    name: "Preeti Desai, Ahmedabad",
+    name: "Piyush Patel, Ahmedabad",
     profileId: "@estherHowerd",
   },
   {
     id: uuidv4(),
     review:
-      "We hired a part-time maid for mopping and cleaning. She did a thorough job and was very professional. It’s clear Helper Hub trains their staff well.",
+      "I came across Helper Hub ad in FB. Just curious, I filled in the form. And what a great decision it was. I have fab experience today of punctuality and good ,clean work done by Helper hub. Thanks and yes, my monthly contract is done.",
     img: smallPeople4,
-    name: "Siddharth Patel, Ahmedabad",
+    name: "Dr.Rama Moondra, Ahmedabad",
     profileId: "@adelebrown",
   },
   {
     id: uuidv4(),
     review:
-      "Excellent cooking assistance for my mom while I’m at work. The helper even handled basic grocery chopping and prep. It made a big difference in our routine.",
+      "Excellent service it’s long way to go city like ahmedabad many workers from Rajasthan and they will be away ones festival session start so it’s easy to manage from this agency i just spoke to owner M’s Vaidehi patel wish her all the best wishes for her start up to go Multifold in coming years.",
     img: smallPeople5,
-    name: "Karan Patel, Ahmedabad",
+    name: "Dhaval Sheth, Ahmedabad",
     profileId: "@ellacurry",
   },
   {
     id: uuidv4(),
     review:
-      "Very impressed with the quality of service. The housemaid was polite, hardworking, and respectful of our space. It’s rare to find such trustworthy help.",
+      "It was a very good experience and the agency for work sent namely Vipin Kharadi and Vipin Amaliya had done their job properly. They are very well trained and well mannered.",
     img: smallPeople6,
-    name: "Neha Parmar, Ahmedabad",
+    name: "Niyatti Bhatt, Ahmedabad",
     profileId: "@georgia",
   },
 ];
@@ -542,57 +542,49 @@ export const loginReviewData = [
   {
     id: uuidv4(),
     review:
-      "I booked a maid for daily kitchen and dish cleaning. The service was punctual and hassle-free. She was polite and knew her job well. Helper Hub has been a blessing for my busy lifestyle!",
+      "Their team was professional, punctual, and completed the cleaning services efficiently. The staff was polite and well-trained. Highly recommended for anyone looking for reliable home help services!",
     img: smallPeople1,
-    name: "Ankita Sharma, Ahmedabad",
+    name: "Vishal Patel, Ahmedabad",
     profileId: "@iamsedaoi",
   },
   {
     id: uuidv4(),
     review:
-      "After trying many local agencies, Helper Hub finally sent someone reliable. My elderly parents now have help for cooking and cleaning. We’re so relieved!",
+      "Best service....thank you helper hub .. Highly appreciated your service others best service best cleaning staff....this is my geniune review I m very happy 😁",
     img: smallPeople2,
-    name: "Ravi Mehta, Ahmedabad",
+    name: "Trisha Modi, Ahmedabad",
     profileId: "@roanld23",
   },
   {
     id: uuidv4(),
     review:
-      "The kitchen helper arrived on time and maintained great hygiene. Booking the service was quick, and the customer support was super responsive. Totally recommend it.",
+      "I recently booked a maid service through Helper Hub, and I’m really happy with the experience. The process was quick and smooth, and the service they provided was excellent. The maid was professional, punctual, and did a great job. It’s a trustworthy platform for quick and reliable home help services. Highly recommended! 👍",
     img: smallPeople3,
-    name: "Preeti Desai, Ahmedabad",
+    name: "Piyush Patel, Ahmedabad",
     profileId: "@estherHowerd",
   },
   {
     id: uuidv4(),
     review:
-      "We hired a part-time maid for mopping and cleaning. She did a thorough job and was very professional. It’s clear Helper Hub trains their staff well.",
+      "I came across Helper Hub ad in FB. Just curious, I filled in the form. And what a great decision it was. I have fab experience today of punctuality and good ,clean work done by Helper hub. Thanks and yes, my monthly contract is done.",
     img: smallPeople4,
-    name: "Siddharth Patel, Ahmedabad",
+    name: "Dr.Rama Moondra, Ahmedabad",
     profileId: "@adelebrown",
   },
   {
     id: uuidv4(),
     review:
-      "Excellent cooking assistance for my mom while I’m at work. The helper even handled basic grocery chopping and prep. It made a big difference in our routine.",
+      "Excellent service it’s long way to go city like ahmedabad many workers from Rajasthan and they will be away ones festival session start so it’s easy to manage from this agency i just spoke to owner M’s Vaidehi patel wish her all the best wishes for her start up to go Multifold in coming years.",
     img: smallPeople5,
-    name: "Karan Patel, Ahmedabad",
+    name: "Dhaval Sheth, Ahmedabad",
     profileId: "@ellacurry",
   },
   {
     id: uuidv4(),
     review:
-      "Very impressed with the quality of service. The housemaid was polite, hardworking, and respectful of our space. It’s rare to find such trustworthy help.",
+      "It was a very good experience and the agency for work sent namely Vipin Kharadi and Vipin Amaliya had done their job properly. They are very well trained and well mannered.",
     img: smallPeople6,
-    name: "Neha Parmar, Ahmedabad",
-    profileId: "@georgia",
-  },
-  {
-    id: uuidv4(),
-    review:
-      "Being a working couple, we struggled with house cleaning. The Helper Hub app made it super easy to schedule daily help. No follow-ups, no stress — just done!",
-    img: smallPeople7,
-    name: "Rahul Patel, Ahmedabad",
+    name: "Niyatti Bhatt, Ahmedabad",
     profileId: "@georgia",
   },
 ];
