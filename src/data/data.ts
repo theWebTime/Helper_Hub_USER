@@ -147,11 +147,11 @@ export const headerMenu = [
         name: "One Time Services",
         link: "/services",
       },
-      {
+      /* {
         id: uuidv4(),
         name: "Monthly Services",
         link: "/services",
-      },
+      }, */
     ],
   },
   /* {
