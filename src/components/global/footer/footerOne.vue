@@ -32,7 +32,8 @@
               </li>
               <li><router-link class="hover:text-v200 duration-300" to="/cancellation-refund">Cancellation &
                   Refund</router-link></li>
-              <li><router-link class="hover:text-v200 duration-300" to="/terms">Terms & Conditions</router-link></li>
+              <li><router-link class="hover:text-v200 duration-300" to="/terms-conditions">Terms &
+                  Conditions</router-link></li>
               <li><router-link class="hover:text-v200 duration-300" to="/contact">Contact Us</router-link></li>
             </ul>
           </div>
