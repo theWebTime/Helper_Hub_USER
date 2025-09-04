@@ -218,6 +218,11 @@ export const headerMenu = [
       },
       {
         id: uuidv4(),
+        name: "Cancellation Refund",
+        link: "/cancellation-refund",
+      },
+      {
+        id: uuidv4(),
         name: "Contact Us",
         link: "/contact",
       },

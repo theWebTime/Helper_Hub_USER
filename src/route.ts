@@ -21,6 +21,7 @@ import FAQPage from "./pages/FAQPage.vue";
 import ContactPage from "./pages/ContactPage.vue";
 import PrivacyPolicy from "./pages/PrivacyPolicy.vue";
 import TermsConditions from "./pages/TermsConditions.vue";
+import CancellationRefund from "./pages/CancellationRefund.vue";
 import BecomeTasker from "./pages/BecomeTasker.vue";
 import PostSteps from "./pages/PostSteps.vue";
 import SignInPage from "./pages/SignInPage.vue";
@@ -143,6 +144,11 @@ export const router = createRouter({
       path: "/terms-conditions",
       component: TermsConditions,
       meta: { title: "Terms & Conditions - Helper Hub" },
+    },
+    {
+      path: "/cancellation-refund",
+      component: CancellationRefund,
+      meta: { title: "Cancellation & Refund - Helper Hub" },
     },
     // {
     //   path: "/become-tasker",
